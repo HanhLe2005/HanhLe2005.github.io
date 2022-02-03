@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title> Hanh's Website!</title>
+        <style>
+            body {
+                background: #fa5e80;
+                color: #2d2d2d;
+                padding: 15px;
+                font-family: 'Courier New', Courier, monospace;
+            }
+            #all-contents {
+              max-width: 850px;
+                margin: auto;
+            }
+         
+            /* navigation menu */
+            nav {
+                background: rgba(167, 77, 18, 0.925);
+               margin: 0 auto; margin-bottom: 20px;
+                display: flex;
+                padding: 10px;
+                border-radius: 40px;
+            }
+            h1 {
+                display: flex;
+                align-items: center;
+                color: white;
+                flex: 1;
+                margin: 0;
+            }
+            #nav-ul {
+                list-style-image: none;
+            }
+            .nav-li {
+                display: inline-block;
+                padding: 0 10px;
+            }
+            a {
+                text-decoration: none;
+                color: #fff;
+            }
+         
+            /* main container area beneath menu */
+            main {
+                background: rgb(246, 252, 255);
+                display: flex;
+                border-radius: 40px;
+
+            }
+            .sidebar {
+                margin-right: 25px;
+                padding: 10px;
+
+            }
+            .sidebar-img {
+                width: 200px;
+                border-radius: 40px;
+            }
+            .content {
+                flex: 1;
+                padding: 15px;
+            }
+            #interests {
+                border: 4px rgb(131, 66, 13) ridge;
+                padding: 8px;
+                border-radius: 40px;
+                border-style: dotted; 
+
+            }
+            h2, h3 {
+                margin: 10px;
+            }
+         </style>
+
+    </head>
+
+    <body>
+        <!-- All content goes here-->
+        <div id="all-contents">
+            <nav>
+                <h1>Hanh's Website! </h1>
+                <ul id="nav-ul">
+                    <li class="nav-li"> 
+                        <a href="index.html"> Home </a>
+                    </li>
+                    <li class="nav-li">
+                        <a href= "portfolio.html"> Portfolio </a>
+                    </li> 
+                </ul>
+            </nav>
+
+            <main>
+                <!--Side bar action -->
+                <div class="sidebar">
+                <img class="sidebar-img" src="https://mail.google.com/mail/u/0?ui=2&ik=b6456048b7&attid=0.1&permmsgid=msg-a:r-5346219787712268286&th=17ebd48b5a71b294&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ8P88fl2mTbh4h6_EHqCVv2i50LKZ8uz2ykzTMCAwy7OAPZk9Rp-7KWIqjtdx7ZkdmEubmlJ52LfR8OholXR4ocJ1uEZZsTdP-LgZXHiZtSa9RMv83zavmJkCE&disp=emb&realattid=ii_kz6bo8lh0" >
+                </div>
+
+                <!--Content Section -->
+                <div class="content"> 
+                    <h2>Hanh Le</h2>
+                    <p> Student at Benjamin Franklin Highschool</p>
+                <!-- Interests Section-->
+                <div id="interests">
+                    <H3>Interests</H3>
+                        <ul> 
+                            <li> Baking <3 </li>
+                            <li> Wasting money ;) </li>
+                            <li> Watching rom-coms on Netflix</li>
+                            <li> Saving the enviroment!</li>
+                        </ul> 
+                </div>
+                </div>
+
+            </main>
+        </div>
+    </body>
+</html>
