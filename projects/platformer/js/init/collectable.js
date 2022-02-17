@@ -42,7 +42,7 @@
         createCollectable(type.kennedi, 500, 200, 1, 0.8)
         createCollectable(type.max, 150, 400);
         createCollectable(type.db, 300, 300, 3, 1);
-        createCollectable(type.kennedi, 650, 40)
+        createCollectable(type.kennedi, 6, 50, 40)
         
         
         // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////
