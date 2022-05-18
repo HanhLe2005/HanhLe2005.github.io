@@ -37,7 +37,7 @@ var circles = [];
 
 
 for (var loopsDone = 0; loopsDone < 101; loopsDone++){
-    drawCircle(loopsDone);
+    drawCircle();
 }
 
 
@@ -63,8 +63,8 @@ for (var loopsDone = 0; loopsDone < 101; loopsDone++){
             */
 
             for (var eachCircle = 0; eachCircle < 101; eachCircle++){
-                physikz.updatePosition(circle[eachcircle]);
-                game.checkCirclePosition(circle[eachCircle]);
+                physikz.updatePosition(circles[eachCircle]);
+                game.checkCirclePosition(circles[eachCircle]);
             }
             
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
@@ -101,6 +101,8 @@ for (var loopsDone = 0; loopsDone < 101; loopsDone++){
             else if (circle.y > canvas.height){ // if the circle's position goes out the bottom
                 circle.y = 0;
             }
+
+
 
             else if (circle.y < 0){ //if the circle 
                 circle.y = canvas.height;
