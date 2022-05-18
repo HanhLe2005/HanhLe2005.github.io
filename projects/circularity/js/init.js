@@ -36,10 +36,8 @@ var circles = [];
         // TODO 3 / 8 : Call the drawCircle() function 
 
 
-for (var loopsDone = 0; loopsDone < 101; loopsDone++){
-drawCircle(loopsDone);
+for (var loopsDone = 0; loopsDone < 101; loopsDone++)
 
-}
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM LOGIC ////////////////////////////
         ////////////////////////////////////////////////////////////
@@ -62,8 +60,7 @@ drawCircle(loopsDone);
             */
 
             for (var eachCircle = 0; eachCircle < 101; eachCircle++){
-                physikz.updatePosition(circle);
-                physikz.updatePosition(eachCircle);
+                physikz.updatePosition(circle[eachcircle]);
                 game.checkCirclePosition(eachCircle);
             }
             
@@ -98,18 +95,19 @@ drawCircle(loopsDone);
             
             // TODO 7 : YOUR CODE STARTS HERE //////////////////////
             
-            else if (circle.y > canvas.height){
+            else if (circle.y > canvas.height){ // if the circle's position goes out the bottom
                 circle.y = 0;
             }
 
-            else if (circle.y < 0){
-                circle.y = 0;
+            else if (circle.y < 0){ //if the circle 
+                circle.y = canvas.height;
 
             }
 
             else if (circle.x < 0){
-                circle.y = 0;
+                circle.x = canvas.height;
             }
+            
 
             // YOUR TODO 7 CODE ENDS HERE //////////////////////////
         }
