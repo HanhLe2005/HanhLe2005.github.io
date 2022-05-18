@@ -36,7 +36,10 @@ var circles = [];
         // TODO 3 / 8 : Call the drawCircle() function 
 
 
-for (var loopsDone = 0; loopsDone < 101; loopsDone++)
+for (var loopsDone = 0; loopsDone < 101; loopsDone++){
+    drawCircle(loopsDone);
+}
+
 
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM LOGIC ////////////////////////////
@@ -61,7 +64,7 @@ for (var loopsDone = 0; loopsDone < 101; loopsDone++)
 
             for (var eachCircle = 0; eachCircle < 101; eachCircle++){
                 physikz.updatePosition(circle[eachcircle]);
-                game.checkCirclePosition(eachCircle);
+                game.checkCirclePosition(circle[eachCircle]);
             }
             
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
@@ -107,7 +110,7 @@ for (var loopsDone = 0; loopsDone < 101; loopsDone++)
             else if (circle.x < 0){
                 circle.x = canvas.height;
             }
-            
+
 
             // YOUR TODO 7 CODE ENDS HERE //////////////////////////
         }
