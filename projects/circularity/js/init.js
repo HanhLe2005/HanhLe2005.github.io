@@ -103,7 +103,6 @@ for (var loopsDone = 0; loopsDone < 101; loopsDone++){
             }
 
 
-
             else if (circle.y < 0){ //if the circle 
                 circle.y = canvas.height;
 
