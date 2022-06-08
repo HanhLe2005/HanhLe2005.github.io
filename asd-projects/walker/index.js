@@ -10,17 +10,25 @@ function runProgram(){
   // Constant Variables
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
+  
+  //declaring key codes and assigning them a name
   var KEY = { 
     "ENTER": 13,
     "DOWN":40,
     "UP":38,
     "LEFT":37,
     "RIGHT":39,
+    "A": 65,
+    "W":87,
+    "S":83,
+    "D":68,
   }
+  //positions for up, down, right, and left
   var positionX = 0;
   var positionY = 0;
   var speedX = 0;
   var speedY = 0;
+
   
   // Game Item Objects
 
@@ -28,7 +36,9 @@ function runProgram(){
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
-  $(document).on('keyup', handleKeyUp);
+  $(document).on('keyup', handleKeyUp); // event code for actions when key is released
+  $(document).on('ASWDdown', handleKeyDown);
+  $(document).on('ASWDup', handleKeyUp);
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -37,6 +47,8 @@ function runProgram(){
   On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
   by calling this function and executing the code inside.
   */
+  //helper function that includes functions for moving and drawing the box when a new frame happens
+
   function newFrame() {
 
     repositionGameItem();
@@ -46,7 +58,7 @@ function runProgram(){
   /* 
   Called in response to events.
   */
-
+// function created to let us know what happens when we press on the arrow keys
   function handleKeyDown(event) {  
 
       if (event.which === KEY.LEFT) {
@@ -54,21 +66,40 @@ function runProgram(){
           console.log("left pressed");
       }
       else if (event.which === KEY.RIGHT) {
-        speedX = -5;
+        speedX = 5;
           console.log("right pressed");
       }
 
       else if (event.which === KEY.DOWN) {
-        speedX = -5;
+        speedY = 5;
           console.log("down pressed");
         }
       else if (event.which === KEY.UP) {
-        speedX = -5;
+        speedY = -5;
           console.log("up pressed");
       }
-  
     }
-  
+
+    function ASWDdown(event){
+      if (event.which === KEY.A){
+        speedX = -5;
+        console.log("A pressed");
+      }
+      else if(event.which === KEY.W){
+        speedY = -5;
+        console.log("W pressed");
+      }
+      else if(event.which === KEY.S){
+        speedX = 5;
+        console.log("S pressed");
+      }
+      else if(event.which === KEY.D){
+        speedY = 5;
+        console.log("D pressed");
+      }
+
+    }
+  //function to let us know what happens when the arrow key is released
     function handleKeyUp(event){
       if (event.which === KEY.LEFT){
         speedX = 0;
@@ -86,9 +117,26 @@ function runProgram(){
         speedX = 0;
         speedY = 0;
       }
-
     }
 
+    function ASWDup(event){
+      if (event.which === KEY.A){
+        speedX = 0;
+        speedY = 0;
+      }
+      else if (event.which === KEY.W){
+        speedX = 0;
+        speedY = 0;
+      }
+      else if (event.which === KEY.S){
+        speedX = 0;
+        speedY = 0;
+      }
+      else if (event.which === KEY.D){
+        speedX = 0;
+        speedY = 0;
+      }
+    }
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -105,11 +153,13 @@ function runProgram(){
   function repositionGameItem(){
     positionX = positionX + speedX;
     positionY = positionY + speedY;
+
   }
 
   function redrawGameItem(){
-    $("#walker").css("left", positionX);   
-    $("#walker").css("top", positionY);  
-
+    $("#walker").css("left", positionX);   //drawing it relative to its position to the left
+    $("#walker").css("top", positionY);   //drawing to relative to its position to the top
   }
+
+
 }
