@@ -10,13 +10,24 @@ function runProgram(){
   // Constant Variables
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
+  var KEY = {
+    "ENTER": 13,
+    "DOWN":40,
+    "UP":38,
+    "LEFT":37,
+    "RIGHT":39,
+  }
+  var positionX = 0;
+  var positionY = 0;
+  var speedX = 0;
+  var speedY = 0;
   
   // Game Item Objects
 
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
+  $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -27,16 +38,47 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    
 
+    repositionGameItem();
+    redrawGameItem();
   }
   
   /* 
   Called in response to events.
   */
-  function handleEvent(event) {
 
+  function handleKeyDown(event) {  
+    if (event.which === KEY.ENTER) {
+        console.log("enter pressed");
+    }
+    function handleKeyDown(event) {  
+      if (event.which === KEY.LEFT) {
+          speedX = -5;
+          console.log("left pressed");
+      }
+
+    function handleKeyDown(event) {  
+      if (event.which === KEY.RIGHT) {
+        speedX = -5;
+          console.log("right pressed");
+      }
+
+    function handleKeyDown(event) {  
+      if (event.which === KEY.DOWN) {
+        speedX = -5;
+          console.log("down pressed");
+        }
+    }
+    function handleKeyDown(event) {  
+      if (event.which === KEY.UP) {
+        speedX = -5;
+          console.log("up pressed");
+      }
   }
+    }
+  }
+}
+
 
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
@@ -51,4 +93,22 @@ function runProgram(){
     $(document).off();
   }
   
+  function repositionGameItem(){
+    positionX += speedX;
+    positionY += sppedY;
+  }
+
+  function redrawGameItem(){
+    $("#walker").css("left", positionX);   
+    $("#walker").css("top", positionY);  
+
+  }
+
+  function keyUp(){
+
+    
+  }
+
+
+
 }
