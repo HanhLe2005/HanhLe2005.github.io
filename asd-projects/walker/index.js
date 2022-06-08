@@ -66,7 +66,7 @@ function runProgram(){
         speedX = -5;
           console.log("up pressed");
       }
-  }
+  
     }
   
 
@@ -93,3 +93,4 @@ function runProgram(){
     $("#walker").css("top", positionY);  
 
   }
+}
