@@ -10,7 +10,7 @@ function runProgram(){
   // Constant Variables
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
-  var KEY = {
+  var KEY = { 
     "ENTER": 13,
     "DOWN":40,
     "UP":38,
@@ -48,37 +48,27 @@ function runProgram(){
   */
 
   function handleKeyDown(event) {  
-    if (event.which === KEY.ENTER) {
-        console.log("enter pressed");
-    }
-    function handleKeyDown(event) {  
+
       if (event.which === KEY.LEFT) {
           speedX = -5;
           console.log("left pressed");
       }
-
-    function handleKeyDown(event) {  
-      if (event.which === KEY.RIGHT) {
+      else if (event.which === KEY.RIGHT) {
         speedX = -5;
           console.log("right pressed");
       }
 
-    function handleKeyDown(event) {  
-      if (event.which === KEY.DOWN) {
+      else if (event.which === KEY.DOWN) {
         speedX = -5;
           console.log("down pressed");
         }
-    }
-    function handleKeyDown(event) {  
-      if (event.which === KEY.UP) {
+      else if (event.which === KEY.UP) {
         speedX = -5;
           console.log("up pressed");
       }
   }
     }
-  }
-}
-
+  
 
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
@@ -94,8 +84,8 @@ function runProgram(){
   }
   
   function repositionGameItem(){
-    positionX += speedX;
-    positionY += sppedY;
+    positionX = positionX + speedX;
+    positionY = positionY + speedY;
   }
 
   function redrawGameItem(){
@@ -103,12 +93,3 @@ function runProgram(){
     $("#walker").css("top", positionY);  
 
   }
-
-  function keyUp(){
-
-    
-  }
-
-
-
-}
