@@ -25,14 +25,14 @@ function runProgram(){
   }
   //positions for up, down, right, and left
 
-  var positionX = 0;
-  var positionY = 0;
+  var positionX = 900;
+  var positionY = 250;
   var speedX = 0;
   var speedY = 0;
 
-
-  var positionX2 = 0;
-  var positionY2= 0;
+//position for up, down, right, and left for second player
+  var positionX2 = 300;
+  var positionY2= 250;
   var speedX2 = 0;
   var speedY2 = 0;
 
@@ -63,7 +63,7 @@ function runProgram(){
   /* 
   Called in response to events.
   */
-// function created to let us know what happens when we press on the arrow keys
+// function created to let us know what happens when we press on the arrow keys and AWSD
   function handleKeyDown(event) {  
 
       if (event.which === KEY.LEFT) {
@@ -92,18 +92,18 @@ function runProgram(){
         console.log("W pressed");
       }
       else if(event.which === KEY.S){
-        speedX2 = 5;
+        speedY2 = 5;
         console.log("S pressed");
       }
       else if(event.which === KEY.D){
-        speedY2 = 5;
+        speedX2 = 5;
         console.log("D pressed");
       }
     }
 
 
-    }
-  //function to let us know what happens when the arrow key is released
+    
+  //function to let us know what happens when the arrow key and AWSD keys are released
     function handleKeyUp(event){
       if (event.which === KEY.LEFT){
         speedX = 0;
@@ -155,11 +155,12 @@ function runProgram(){
   
   function repositionGameItem(){
 
-    positionX = positionX + speedX;
+    positionX = positionX + speedX; //for walker 1
     positionY = positionY + speedY;
 
-    positionX2 = positionX2 + speedX2;
+    positionX2 = positionX2 + speedX2; //for walker 2
     positionY2 = positionY2 + speedY2;
+
 
   }
 
@@ -168,9 +169,9 @@ function runProgram(){
     $("#walker").css("left", positionX);   //drawing it relative to its position to the left
     $("#walker").css("top", positionY);   //drawing to relative to its position to the top
 
-    $("#swimmer").css("left", positionX2);
+    $("#swimmer").css("left", positionX2); //same as above but for player 2
     $("#swimmer").css("top", positionY2);
 
   }
 
-
+}
