@@ -24,12 +24,18 @@ function runProgram(){
     "D":68,
   }
   //positions for up, down, right, and left
+
   var positionX = 0;
   var positionY = 0;
   var speedX = 0;
   var speedY = 0;
 
-  
+
+  var positionX2 = 0;
+  var positionY2= 0;
+  var speedX2 = 0;
+  var speedY2 = 0;
+
   // Game Item Objects
 
 
@@ -37,8 +43,7 @@ function runProgram(){
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
   $(document).on('keyup', handleKeyUp); // event code for actions when key is released
-  $(document).on('ASWDdown', handleKeyDown);
-  $(document).on('ASWDup', handleKeyUp);
+
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -78,25 +83,24 @@ function runProgram(){
         speedY = -5;
           console.log("up pressed");
       }
-    }
-
-    function ASWDdown(event){
-      if (event.which === KEY.A){
-        speedX = -5;
+      else if (event.which === KEY.A){
+        speedX2 = -5;
         console.log("A pressed");
       }
       else if(event.which === KEY.W){
-        speedY = -5;
+        speedY2 = -5;
         console.log("W pressed");
       }
       else if(event.which === KEY.S){
-        speedX = 5;
+        speedX2 = 5;
         console.log("S pressed");
       }
       else if(event.which === KEY.D){
-        speedY = 5;
+        speedY2 = 5;
         console.log("D pressed");
       }
+    }
+
 
     }
   //function to let us know what happens when the arrow key is released
@@ -117,26 +121,25 @@ function runProgram(){
         speedX = 0;
         speedY = 0;
       }
-    }
-
-    function ASWDup(event){
-      if (event.which === KEY.A){
-        speedX = 0;
-        speedY = 0;
+      else if (event.which === KEY.A){
+        speedX2 = 0;
+        speedY2 = 0;
       }
       else if (event.which === KEY.W){
-        speedX = 0;
-        speedY = 0;
+        speedX2 = 0;
+        speedY2 = 0;
       }
       else if (event.which === KEY.S){
-        speedX = 0;
-        speedY = 0;
+        speedX2 = 0;
+        speedY2 = 0;
       }
       else if (event.which === KEY.D){
-        speedX = 0;
-        speedY = 0;
+        speedX2 = 0;
+        speedY2 = 0;
       }
+    
     }
+
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -151,15 +154,23 @@ function runProgram(){
   }
   
   function repositionGameItem(){
+
     positionX = positionX + speedX;
     positionY = positionY + speedY;
 
+    positionX2 = positionX2 + speedX2;
+    positionY2 = positionY2 + speedY2;
+
   }
+
 
   function redrawGameItem(){
     $("#walker").css("left", positionX);   //drawing it relative to its position to the left
     $("#walker").css("top", positionY);   //drawing to relative to its position to the top
+
+    $("#swimmer").css("left", positionX2);
+    $("#swimmer").css("top", positionY2);
+
   }
 
 
-}
