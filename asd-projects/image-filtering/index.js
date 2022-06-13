@@ -19,9 +19,11 @@ function resetAndRender() {
 // this function applies the filters to the image and is where you should call
 // all of your apply functions
 function applyAndRender() {
+  
+filterFunction(rgbNumbers);
   // Multiple TODOs: Call your apply function(s) here
 
-  applyFilter();
+  applyFilter(reddify);
   
 
   // do not change the below line of code
@@ -34,9 +36,19 @@ function applyAndRender() {
 
 // TODO 1, 2 & 4: Create the applyFilter function here
 
-applyFilter(){
+function applyFilter(filterFunction){
+  for (var i = 0; i < image.length; i++){
+    for (var j = 0; j < image[i].length; j++){
+      var rgbString = image[i][j];
+      var rgbNumbers = rgbStringToArray(rgbString);
+      rgbNumbers[RED] = 255;
+      var rgbString = rgbArrayToString(rgbNumbers);
+      rgbString = image[i][j];
+      }
+      }
+    }
 
-}
+
 
 // TODO 7: Create the applyFilterNoBackground function
 
@@ -45,7 +57,9 @@ applyFilter(){
 
 
 // TODO 3: Create reddify function
-
+function reddify(rosa){
+rgbArr[RED] = 200;
+}
 
 // TODO 6: Create more filter functions
 
