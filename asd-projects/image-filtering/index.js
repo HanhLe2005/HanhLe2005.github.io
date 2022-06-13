@@ -23,7 +23,9 @@ function applyAndRender() {
 
   // Multiple TODOs: Call your apply function(s) here
 
-  applyFilter(reddify);
+  applyFilter(reddify); 
+  applyFilter(decreaseBlue);
+  applyFilter(increaseGreenByBlue);
 
   
 
@@ -55,10 +57,11 @@ function applyFilter(filterFunction){
 // TODO 5: Create the keepInBounds function
 function keepInBounds(tight){
   
-Math.min(tight, 255);
-Math.max(tight, 0);
+var o = Math.min(tight, 255);
+  return Math.max(o, 0); 
 
-}
+};
+
 
 // TODO 3: Create reddify function
 
@@ -68,5 +71,11 @@ function reddify(rosa){
 
 // TODO 6: Create more filter functions
 
+function decreaseBlue(agua){
+  agua[BLUE] = keepInBounds(agua[BLUE] - 50);
+}
 
+function increaseGreenByBlue(verde){
+  verde[GREEN] = keepInBounds(agua[BLUE] + verde[GREEN]);
+}
 // CHALLENGE code goes below here
