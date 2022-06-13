@@ -19,11 +19,11 @@ function resetAndRender() {
 // this function applies the filters to the image and is where you should call
 // all of your apply functions
 function applyAndRender() {
-  
-filterFunction(rgbNumbers);
+
+
   // Multiple TODOs: Call your apply function(s) here
 
-  applyFilter(reddify);
+
   
 
   // do not change the below line of code
@@ -58,9 +58,7 @@ function applyFilter(){
 
 // TODO 3: Create reddify function
 
-function reddify(rosa){
-  rgbArr[RED] = 200;
-}
+
 
 // TODO 6: Create more filter functions
 
