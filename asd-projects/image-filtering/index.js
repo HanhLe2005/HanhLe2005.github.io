@@ -20,9 +20,9 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
 
-
   // Multiple TODOs: Call your apply function(s) here
 
+  //calls functions to apply filters
   applyFilter(reddify); 
   applyFilter(decreaseBlue);
   applyFilter(increaseGreenByBlue);
@@ -39,6 +39,8 @@ function applyAndRender() {
 
 // TODO 1, 2 & 4: Create the applyFilter function here
 
+//function created in order to apply filters to each of the grid in the image
+//function also used to change and differentiate between strings and rgb values
 function applyFilter(filterFunction){
   for (var i = 0; i < image.length; i++){
     for (var j = 0; j < image[i].length; j++){
@@ -55,23 +57,26 @@ function applyFilter(filterFunction){
 
 function applyFilterNoBackground(filterFunction){
   var backgroundColor = image[1][1];
-    for (var i = 0; i < image.length; i++){
-     for (var j = 0; j < image[i].length; j++)
+  for (var i = 0; i < image.length; i++){
+    for (var j = 0; j < image[i].length; j++){
       var rgbString = image[i][j];
        var rgbNumbers = rgbStringToArray(rgbString);
         filterFunction(rgbNumbers);
           rgbString = rgbArrayToString(rgbNumbers);
           image[i][j] = rgbString;
           if (backgroundColor === image[i][j]){
-            return true}
-
-            else applyFilter()
+          }
+          else {
+            
           }
       }
-  
+    }
+  }
   
 
 // TODO 5: Create the keepInBounds function
+
+// function created to keep values between a range of 255 and 0
 function keepInBounds(tight){
   
 var o = Math.min(tight, 255);
@@ -82,16 +87,19 @@ var o = Math.min(tight, 255);
 
 // TODO 3: Create reddify function
 
+//applies a red filter to image
 function reddify(rosa){
   rosa[RED] = 200;
 }
 
 // TODO 6: Create more filter functions
 
+//applies a blue filter or decrease the blue value of the image
 function decreaseBlue(agua){
-  agua[BLUE] = keepInBounds(agua[BLUE] - 50);
+  agua[BLUE] = keepInBounds(agua[BLUE] - 50); //takes away values
 }
 
+//applies a green filter to the image based on the blue values
 function increaseGreenByBlue(verde){
   verde[GREEN] = keepInBounds(verde[BLUE] + verde[GREEN]);
 }
