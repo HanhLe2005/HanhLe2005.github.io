@@ -24,10 +24,8 @@ function applyAndRender() {
 
   //calls functions to apply filters
   applyFilter(reddify); 
-  applyFilter(decreaseBlue);
-  applyFilter(increaseGreenByBlue);
-
-  
+  applyFilterNoBackground(decreaseBlue);
+  applyFilterNoBackground(increaseGreenByBlue);
 
   // do not change the below line of code
   render($("#display"), image);
@@ -41,11 +39,12 @@ function applyAndRender() {
 
 //function created in order to apply filters to each of the grid in the image
 //function also used to change and differentiate between strings and rgb values
+
 function applyFilter(filterFunction){
   for (var i = 0; i < image.length; i++){
     for (var j = 0; j < image[i].length; j++){
       var rgbString = image[i][j];
-       var rgbNumbers = rgbStringToArray(rgbString);
+       var rgbNumbers = rgbStringToArray(rgbString); //changes the numbers to strings and vice versa
         filterFunction(rgbNumbers);
           rgbString = rgbArrayToString(rgbNumbers);
           image[i][j] = rgbString;
@@ -55,19 +54,19 @@ function applyFilter(filterFunction){
       
 // TODO 7: Create the applyFilterNoBackground function
 
+//function created to apply filters on parts of the image array that isn't the background color
 function applyFilterNoBackground(filterFunction){
-  var backgroundColor = image[1][1];
+  var backgroundColor = image[1][1]; //value of background color
   for (var i = 0; i < image.length; i++){
     for (var j = 0; j < image[i].length; j++){
       var rgbString = image[i][j];
-       var rgbNumbers = rgbStringToArray(rgbString);
-        filterFunction(rgbNumbers);
-          rgbString = rgbArrayToString(rgbNumbers);
-          image[i][j] = rgbString;
-          if (backgroundColor === image[i][j]){
+        if (backgroundColor === image[i][j]){ //declaring what it has to be equal to stay the same
           }
           else {
-            
+            var rgbNumbers = rgbStringToArray(rgbString); //everything in this section applies the filter
+               filterFunction(rgbNumbers);
+                 rgbString = rgbArrayToString(rgbNumbers);
+                   image[i][j] = rgbString;
           }
       }
     }
@@ -79,7 +78,7 @@ function applyFilterNoBackground(filterFunction){
 // function created to keep values between a range of 255 and 0
 function keepInBounds(tight){
   
-var o = Math.min(tight, 255);
+var o = Math.min(tight, 255); // creates a boundary and stores it in a variable
   return Math.max(o, 0); 
 
 };
@@ -101,6 +100,6 @@ function decreaseBlue(agua){
 
 //applies a green filter to the image based on the blue values
 function increaseGreenByBlue(verde){
-  verde[GREEN] = keepInBounds(verde[BLUE] + verde[GREEN]);
+  verde[GREEN] = keepInBounds(verde[BLUE] + verde[GREEN]); //creating a filter by adding blue and green values
 }
 // CHALLENGE code goes below here
