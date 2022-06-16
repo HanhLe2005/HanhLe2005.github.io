@@ -1,33 +1,40 @@
 #fullContainer {
     width:100%;
+    background-color: antiquewhite;
 }
 #buttonContainer {
     margin:auto;
     width: 40%;
+    
 }
 #goButton {
     margin: auto;
     width: 100%;
-    border: 2px darkgray double;
-    background: lightgray;
+    border: 2px rgb(249, 66, 115) double;
+    background: rgb(249, 179, 214);
     font-size: 30px;
+    border-radius: 30px;
 }
 #sortContainer {
     display: table;
     margin: 0 auto;
     width: 100%;
+    background-color: antiquewhite;
 }
 .subContainer {
     display: inline-block;
     width:45%;
-    border: 4px forestgreen groove;
+    border: 4px rgb(249, 66, 115) groove;
     margin-top: 1.25%;
+    border-radius: 30px;
 }
 #bubbleArea {
     margin-left: 2.5%;
+    background-color: rgb(221, 115, 247);
 }
 #quickArea {
     margin-left: 3.75%;
+    background-color: rgb(144, 220, 99);
 }
 .subContainer > h2 {
     margin-left: 5%;
