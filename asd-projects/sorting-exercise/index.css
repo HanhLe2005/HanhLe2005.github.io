@@ -30,11 +30,11 @@
 }
 #bubbleArea {
     margin-left: 2.5%;
-    background-color: rgb(221, 115, 247);
+    background-color: rgb(177, 231, 252);
 }
 #quickArea {
     margin-left: 3.75%;
-    background-color: rgb(144, 220, 99);
+    background-color: rgb(121, 165, 226);
 }
 .subContainer > h2 {
     margin-left: 5%;
@@ -53,10 +53,10 @@
     position: relative;
 }
 .bubbleElement {
-    background: url('img/bubble.png');
+    background: url('http://images.shoutwiki.com/sanrio/2/23/Cinnamoroll.png');
     /*border: 2px aqua ridge;*/
 }
 .quickElement {
-    background: url('img/quick.png');
+    background: url('https://upload.wikimedia.org/wikipedia/en/0/05/Hello_kitty_character_portrait.png');
     /*border: 2px firebrick ridge;*/
 }
