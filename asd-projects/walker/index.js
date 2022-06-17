@@ -162,32 +162,78 @@ function runProgram() {
 
     positionX = positionX + speedX; //for walker 1
     positionY = positionY + speedY;
-
-    if (positionX >= 1250){
-       positionX = 900
-       positionY = 250;
+ 
+    //conditionals to prevent the walker peices to leave bounds - will reposition to starting point
+    if (positionX >= 1250) {
+      positionX = 900
+      positionY = 250;
 
     }
-    if (positionY <= boardHeight){
+    if (positionY <= boardHeight) {
       positionX = 900;
       positionY = 250;
     }
 
-    if (positionX <= 0){
+    if (positionX <= 0) {
       positionX = 900;
       positionY = 250;
     }
 
-    if (positionY >= 500){
+    if (positionY >= 500) {
       positionX = 900;
       positionY = 250;
-   
-    
+    }
+
+
     positionX2 = positionX2 + speedX2; //for walker 2
     positionY2 = positionY2 + speedY2;
 
-  }
+//conditionals to prevent walker 2 to leave bounds - will reposition to original position
 
+    if (positionX2 >= 1250) {
+      positionX2 = 300
+      positionY2 = 250;
+
+    }
+    if (positionY2 <= boardHeight) {
+      positionX2 = 300;
+      positionY2 = 250;
+    }
+
+    if (positionX2 <= 0) {
+      positionX2 = 300;
+      positionY2 = 250;
+    }
+
+    if (positionY2 >= 500) {
+      positionX2 = 300;
+      positionY2 = 250;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////Code for collisions///////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////
+
+    var swimmerWidth = $('#swimmer').width();
+    var swimmerHeight = $('#swimmer').height();
+    var swimmerLeft = $('#swimmer').left();
+    var swimmerTop = $('#swimmer').top();
+
+    if (positionX > swimmerWidth){
+      speedX = -1;
+    }
+    if (positionY > swimmerHeight){
+      speedY = -1;
+    }
+    if (positionX > swimmerLeft){
+      speedX = -1;
+    }
+    if(positionY > swimmerTop){
+      speedX = -1;
+    }
+
+
+  }
 
   function redrawGameItem() {
     $("#walker").css("left", positionX);   //drawing it relative to its position to the left
@@ -199,3 +245,4 @@ function runProgram() {
   }
 
 }
+
