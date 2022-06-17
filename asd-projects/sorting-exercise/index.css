@@ -35,6 +35,7 @@
 #quickArea {
     margin-left: 3.75%;
     background-color: rgb(121, 165, 226);
+    border-radius: 30px;
 }
 .subContainer > h2 {
     margin-left: 5%;
