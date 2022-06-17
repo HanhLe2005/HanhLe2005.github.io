@@ -25,13 +25,13 @@ function runProgram() {
   }
   //positions for up, down, right, and left
 
-  var positionX = 900;
+  var positionX = 1000;
   var positionY = 250;
   var speedX = 0;
   var speedY = 0;
 
   //position for up, down, right, and left for second player
-  var positionX2 = 300;
+  var positionX2 = 200;
   var positionY2 = 250;
   var speedX2 = 0;
   var speedY2 = 0;
@@ -165,22 +165,22 @@ function runProgram() {
  
     //conditionals to prevent the walker peices to leave bounds - will reposition to starting point
     if (positionX >= 1250) {
-      positionX = 900
+      positionX = 1000
       positionY = 250;
 
     }
     if (positionY <= boardHeight) {
-      positionX = 900;
+      positionX = 1000;
       positionY = 250;
     }
 
     if (positionX <= 0) {
-      positionX = 900;
+      positionX = 1000;
       positionY = 250;
     }
 
     if (positionY >= 500) {
-      positionX = 900;
+      positionX = 1000;
       positionY = 250;
     }
 
@@ -191,22 +191,22 @@ function runProgram() {
 //conditionals to prevent walker 2 to leave bounds - will reposition to original position
 
     if (positionX2 >= 1250) {
-      positionX2 = 300
+      positionX2 = 200
       positionY2 = 250;
 
     }
     if (positionY2 <= boardHeight) {
-      positionX2 = 300;
+      positionX2 = 200;
       positionY2 = 250;
     }
 
     if (positionX2 <= 0) {
-      positionX2 = 300;
+      positionX2 = 200;
       positionY2 = 250;
     }
 
     if (positionY2 >= 500) {
-      positionX2 = 300;
+      positionX2 = 200;
       positionY2 = 250;
     }
 
@@ -214,10 +214,10 @@ function runProgram() {
     ////////////////////////////Code for collisions///////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////
 
-    var swimmerWidth = $('#swimmer').width();
+   /* var swimmerWidth = $('#swimmer').width();
     var swimmerHeight = $('#swimmer').height();
-    var swimmerLeft = $('#swimmer').left();
-    var swimmerTop = $('#swimmer').top();
+    var swimmerLeft = parseFloat($("#swimmer").css("left"));
+    var swimmerTop = parseFloat($("#swimmer").css("left"));
 
     if (positionX > swimmerWidth){
       speedX = -1;
@@ -231,6 +231,7 @@ function runProgram() {
     if(positionY > swimmerTop){
       speedX = -1;
     }
+    */
 
 
   }
