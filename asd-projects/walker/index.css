@@ -16,7 +16,7 @@ body {
   width: 100px;
   height: 100px;
   position: absolute;
-  border-radius: 50;
+  border-radius: 50px;
   left: 500px; 
   top: 250px;
 }
@@ -25,7 +25,7 @@ body {
   width: 100px;
   height: 100px;
   position: absolute;
-  border-radius: 50;
+  border-radius: 50px;
   left: 1000px;
   top: 250px;
 }

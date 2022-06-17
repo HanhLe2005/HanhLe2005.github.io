@@ -155,28 +155,36 @@ function runProgram() {
 
   function repositionGameItem() {
 
-    var boardWidth = board.width();
+    //var boardWidth = $('#board').width();
+    var boardHeight = $('board').height();
+    //var boardTop = $('board').top();
+    //var boardLeft  = $('board').left();
 
     positionX = positionX + speedX; //for walker 1
     positionY = positionY + speedY;
 
-    if (positionX > boardWidth){
-      endGame();
+    if (positionX >= 1250){
+       positionX = 900
+       positionY = 250;
+
     }
-    if (positionY < 0){
-      endGame();
+    if (positionY <= boardHeight){
+      positionX = 900;
+      positionY = 250;
     }
+
+    if (positionX <= 0){
+      positionX = 900;
+      positionY = 250;
+    }
+
+    if (positionY >= 500){
+      positionX = 900;
+      positionY = 250;
+   
     
     positionX2 = positionX2 + speedX2; //for walker 2
     positionY2 = positionY2 + speedY2;
-
-    if (positionX2 > boardWidth){
-      endGame();
-    }
-    if (positionY2 < 0){
-      endGame();
-    }
-
 
   }
 
