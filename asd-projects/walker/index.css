@@ -27,6 +27,7 @@ body {
   position: absolute;
   left: 1000px;
   top: 250px;
+  border-radius: 50px;
 }
  /*#popup-box {
   background-color: azure;
