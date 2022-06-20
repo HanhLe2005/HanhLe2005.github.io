@@ -1,21 +1,67 @@
 User Story / Gameplay:
 
 1. Describe the gameplay
+    There will be two pong sides and a ball on each side. Each player can nam their side at the start.
+    The ball will start in the center, with a pop up box asking which side to start the game at. The ball
+    will start on that side, when the ball hit the opponents pong, itll bounce back. 
 
 2. What are the conditions when the game begins?
 
+    When the ball hits the opponents wall, the opposing side will get a point. After three points for one player, the speed of the ball
+    will increase. After 5 points, the leading side will get another ball. The player to get to 7 points wins!
+
 3. Does the game have an end? If so, what are the conditions for when it ends?
+
+    Once one player gets to 7 points the game will end. After it ends, there will be a continue button or restart button.
 
 4. What ifs will there be?
 
+    If the balls hit the box, it'll bounce back in. If the opposing side hits your side, they get a point.
+    If you hit the restart button, the game will go back to the way it was, if you press continue, the pop
+    up will disappear. If there are multiples balls and they hit each other, the balls will move back to the
+    leading players side.
+
 Visual Game Components:
 
-What are the visual game components? For example, in Bouncing Box, the game components were the board and the box.
-Which will be static? (the board)
-Which will be animated? (the box)
-What data will you need to manage each game component? For example, in Bouncing Box, the data values were positionX, speedX, and points.
+1. What are the visual game components? For example, in Bouncing Box, the game components were the board and the box.
+   
+    Background settings (If possible, let players pick what theme they want.), the pong board, and the balls. Also the counter points in the upper hand corners.
+
+2. Which will be static? (the board)
+
+    The pong boards.
+
+3. Which will be animated? (the box) 
+
+    The balls.
+
+4. What data will you need to manage each game component? For example, in Bouncing Box, the data values were positionX, speedX, and points.
+
+    The board arena values, the points, position of the ball, position of the pong boards. 
 
 Events / Logic:
-What events will occur in this game? (timer events, keyboard events, clicking events?)
-How do those events affect the data of the program?
-For each "event", write out the high-level logic of what will happen. It is better (and tricky) to be as specific as you can while remaining high-level!
+
+1. What events will occur in this game? (timer events, keyboard events, clicking events?)
+
+    The game will pause for around 5-7 seconds after every point. The ball will take around 4 seconds to go to the opposite side,
+    but this value will change when the points increase. When the WS keys are clicked, it will control
+    the motion of the left board. If the Up and Down keys are clicked, it'll control the motion of the right board.
+    At the begining it'll show you a main menu screen and ask for names and what theme you would like to play pong,
+    when these are clicked, it'll create the game. There will also be buttons after you reach 7 points, that'll affect
+    whether or not you can continue. 
+
+2. How do those events affect the data of the program?
+
+    These events will affect the data of the game as the pong boards will move as a result of the keys, which afects of
+    positon of the pong boards and the points of the game. The motion of the board and events that occur will also 
+    affect the positon of the ball. 
+
+3. For each "event", write out the high-level logic of what will happen. It is better (and tricky) to be as specific as you can while remaining high-level!
+
+    For left side: If you push the key W, the pong board will move up and the speed of the ball will move in the opposite direction. If
+    you push the S key, the pong board will move down, and the ball will move in the opposte direction if touched. However, if the ball hits the left side of the arena,
+    then the opposing side will get a point. 
+
+    For the right side: If you push the key Up, the pong board will move up and the speed of the ball will move in the opposite direction. If
+    you push the down key, the pong board will move down, and the ball will move in the opposte direction if touched. However, if the ball hits the right side of the arena,
+    then the opposing side will get a point.

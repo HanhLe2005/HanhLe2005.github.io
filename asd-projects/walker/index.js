@@ -1,15 +1,7 @@
 /* global $, sessionStorage */
 
 $(document).ready(runProgram); // wait for the HTML / CSS elements of the page to fully load, then execute runProgram()
-$(document).ready(function(){
-  $("instructions").click(function(){
-    $("instructions_container").show();
-  })
-  
-  $("close_button").click(function(){
-    $("instruction_container").hide();
-  })
-})
+
 function runProgram() {
   ////////////////////////////////////////////////////////////////////////////////
   //////////////////////////// SETUP /////////////////////////////////////////////
@@ -51,7 +43,15 @@ function runProgram() {
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
   $(document).on('keyup', handleKeyUp); // event code for actions when key is released
-
+  $(document).on(function(){
+    $("instructions").click(function(){
+      $("instructions_container").show();
+    })
+    
+    $("close_button").click(function(){
+      $("instruction_container").hide();
+    })
+  })
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
