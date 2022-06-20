@@ -1,7 +1,15 @@
 /* global $, sessionStorage */
 
 $(document).ready(runProgram); // wait for the HTML / CSS elements of the page to fully load, then execute runProgram()
-
+$(document).ready(function(){
+  $("instructions").click(function(){
+    $("instructions_container").show();
+  })
+  
+  $("close_button").click(function(){
+    $("instruction_container").hide();
+  })
+})
 function runProgram() {
   ////////////////////////////////////////////////////////////////////////////////
   //////////////////////////// SETUP /////////////////////////////////////////////
