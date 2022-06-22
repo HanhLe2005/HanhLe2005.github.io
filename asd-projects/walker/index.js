@@ -47,7 +47,7 @@ function runProgram() {
     $("#instructions_container").show();
   })
   $("#close_button").on("click", () => {
-    $("#instruction_container").hide();
+    $("#instructions_container").hide();
   })
 
   ////////////////////////////////////////////////////////////////////////////////
