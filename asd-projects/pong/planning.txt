@@ -1,9 +1,15 @@
 User Story / Gameplay:
 
 1. Describe the gameplay
-    There will be two pong sides and a ball on each side. Each player can nam their side at the start.
+    There will be two pong sides and a ball on each side. Each player can name their side at the start.
     The ball will start in the center, with a pop up box asking which side to start the game at. The ball
     will start on that side, when the ball hit the opponents pong, itll bounce back. 
+
+    instructions: Welcome to Pong! The goal of this game is to score the most points against your opponenent.
+        When the ball hits the opponents wall, the opposing side will get a point. The left player will use the WS keys
+        and the right player will use the up and down keys.
+        After three points for one player, the speed of the ball will increase. After 5 points, the leading side will
+        get another ball. The player to get to 7 points wins!
 
 2. What are the conditions when the game begins?
 

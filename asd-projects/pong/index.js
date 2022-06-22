@@ -13,6 +13,26 @@ function runProgram(){
   
   // Game Item Objects
 
+  function properties(elementId){
+  
+    var gameObject = {};
+      gameObject.id = elementId;
+      gameObject.x = parseFloat($(elementId).css('left'));
+      gameObject.y = parseFloat($(elementId).css('top'));
+      gameObject.width = $(elementId).width();
+      gameObject.height = $(elementId).height();
+      gameObject.speedX = 0;
+      gameObject.speedY = 0;
+       return gameObject; 
+        
+  }
+
+  function makeElement(id, value){
+    return {
+        id: "#" + id,
+        value: value
+    };
+}
 
   // one-time setup
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
