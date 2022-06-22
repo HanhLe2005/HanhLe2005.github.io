@@ -43,14 +43,13 @@ function runProgram() {
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
   $(document).on('keyup', handleKeyUp); // event code for actions when key is released
-  $(document).on(function(){
-    $("instructions").click(function(){
-      $("instructions_container").show();
+  $(document).on(function () {
+    $("#instructions").on("click", function () {
+      $("#instructions_container").show();
     })
-    
-    $("close_button").click(function(){
-      $("instruction_container").hide();
-    })
+    $("#close_button").on("click", () => {
+        $("#instruction_container").hide();
+      })
   })
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -170,7 +169,7 @@ function runProgram() {
 
     positionX = positionX + speedX; //for walker 1
     positionY = positionY + speedY;
- 
+
     //conditionals to prevent the walker peices to leave bounds - will reposition to starting point
     if (positionX >= 1250) {
       positionX = 1000
@@ -196,7 +195,7 @@ function runProgram() {
     positionX2 = positionX2 + speedX2; //for walker 2
     positionY2 = positionY2 + speedY2;
 
-//conditionals to prevent walker 2 to leave bounds - will reposition to original position
+    //conditionals to prevent walker 2 to leave bounds - will reposition to original position
 
     if (positionX2 >= 1250) {
       positionX2 = 200
@@ -222,24 +221,24 @@ function runProgram() {
     ////////////////////////////Code for collisions///////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////
 
-   /* var swimmerWidth = $('#swimmer').width();
-    var swimmerHeight = $('#swimmer').height();
-    var swimmerLeft = parseFloat($("#swimmer").css("left"));
-    var swimmerTop = parseFloat($("#swimmer").css("left"));
-
-    if (positionX > swimmerWidth){
-      speedX = -1;
-    }
-    if (positionY > swimmerHeight){
-      speedY = -1;
-    }
-    if (positionX > swimmerLeft){
-      speedX = -1;
-    }
-    if(positionY > swimmerTop){
-      speedX = -1;
-    }
-    */
+    /* var swimmerWidth = $('#swimmer').width();
+     var swimmerHeight = $('#swimmer').height();
+     var swimmerLeft = parseFloat($("#swimmer").css("left"));
+     var swimmerTop = parseFloat($("#swimmer").css("left"));
+ 
+     if (positionX > swimmerWidth){
+       speedX = -1;
+     }
+     if (positionY > swimmerHeight){
+       speedY = -1;
+     }
+     if (positionX > swimmerLeft){
+       speedX = -1;
+     }
+     if(positionY > swimmerTop){
+       speedX = -1;
+     }
+     */
 
 
   }
