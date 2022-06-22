@@ -27,11 +27,6 @@ function runProgram(){
         
   }
 
-  function makeElement(id, value){
-    return {
-        id: "#" + id,
-        value: value
-    };
 }
 
   // one-time setup
