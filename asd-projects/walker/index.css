@@ -33,7 +33,7 @@ body {
 #instructions_container {
   left: 25%;
   top: 10%;
-  width: 45%;
+  width: 40%;
   padding: 20px;
   z-index: 1111;
   background-color: pink;
@@ -44,18 +44,16 @@ body {
 
 }
 
-#instructions{
-background-color: antiquewhite;
-border-radius: 20px;
-width:10%;
-height: 5%;
-margin: 10px;
+#instructions {
+  background-color: antiquewhite;
+  border-radius: 20px;
+  width: 10%;
+  height: 5%;
+  margin: 10px;
 
 }
 
-#close {
+#close_button {
   float: right;
   cursor: pointer;
-
-
 }
