@@ -50,6 +50,7 @@ body {
 
 }
 
+
 /*button stuff*/
 
 #change_themes {
@@ -57,6 +58,9 @@ body {
   border-radius: 30px;
   margin: 6px;
   border:rgb(6, 5, 0);
+  position: absolute;
+  left: 750px;
+  top: 30px;
 }
 
 #instructions {
@@ -64,6 +68,37 @@ body {
   border-radius: 30px;
   margin: 6px;
   border:rgb(6, 5, 0);
+  position: absolute;
+  top: 30px;
+  left: 430px;
+}
+
+#player1Score {
+background-color: white;
+border:3px solid rgb(233, 35, 91);
+width: 40px;
+height: 40px;
+position: absolute;
+top: 40px;
+left: 40px;
+
+}
+#player1Score h2{
+top: 30px;
+
+}
+
+#player2Score{
+  background-color: white;
+  border:3px solid rgb(233, 35, 91);
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 40px;
+  left: 1250px;
+
+
+
 }
 
 

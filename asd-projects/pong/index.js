@@ -17,53 +17,67 @@ function runProgram() {
     "S": 83,
     "UP": 38,
     "DOWN": 40,
-
   }
 
   // Game Item Objects
 
-}
 
-// one-time setup
-let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-$(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
-$(document).on('keydown', handleKeyDown);
-$(document).on('keyup', handleKeyUp);
-////////////////////////////////////////////////////////////////////////////////
-///////////////////////// CORE LOGIC ///////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
+  // one-time setup
+  let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
+  $(document).on('keydown', handleKeyDown);
+  $(document).on('keyup', handleKeyUp);
+  ////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////// CORE LOGIC ///////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////
 
-/* 
-On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
-by calling this function and executing the code inside.
-*/
-function newFrame() {
+  /* 
+  On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
+  by calling this function and executing the code inside.
+  */
+  function newFrame() {
 
 
-}
+  }
 
-/* 
-Called in response to events.
-*/
+  /* 
+  Called in response to events.
+  */
 
-function handleKeyDown(event) {
-if (event.which === KEY.W){
-console.log("W pressed");
-}
-else if (event.which === KEY.S){
-  console.log("S pressed");
-}
-else if (event.which === KEY.UP){
-  console.log("Up pressed");
-}
-else if (event.which === KEY.DOWN){
-  console.log("Down pressed");
-}
-}
+  function handleKeyDown(event) {
+    if (event.which === KEY.W) {
+      console.log("W pressed");
+    }
+    else if (event.which === KEY.S) {
+      console.log("S pressed");
+    }
+    else if (event.which === KEY.UP) {
+      console.log("Up pressed");
+    }
+    else if (event.which === KEY.DOWN) {
+      console.log("Down pressed");
+    }
+  }
 
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
+  function handleKeyUp(event) {
+
+    if (event.which === KEY.W) { }
+    else if (event.which === KEY.S) { }
+    else if (event.which === KEY.UP) { }
+    else if (event.which === KEY.DOWN) { }
+
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////
+
+  function startBall() {
+    properties("#ball").speedX = 0;
+    properties("#ball").speedY = 0;
+    properties("#ball").height() = 500;
+    properties("#ball").width() = 400;
+  }
+}
 
 function properties(elementId) {
 
@@ -87,5 +101,5 @@ function endGame() {
   $(document).off();
 }
 
-
+}
 
