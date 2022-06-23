@@ -57,20 +57,22 @@ body {
   background-color: rgb(255, 255, 255);
   border-radius: 30px;
   margin: 6px;
-  border:rgb(6, 5, 0);
+  border:3px solid rgb(233, 35, 91);
   position: absolute;
   left: 750px;
   top: 30px;
+  height: 30px;
 }
 
 #instructions {
   background-color: rgb(255, 255, 255);
   border-radius: 30px;
   margin: 6px;
-  border:rgb(6, 5, 0);
+  border:3px solid rgb(233, 35, 91);
   position: absolute;
   top: 30px;
   left: 430px;
+  height: 30px;
 }
 
 #player1Score {
@@ -79,13 +81,16 @@ border:3px solid rgb(233, 35, 91);
 width: 40px;
 height: 40px;
 position: absolute;
-top: 40px;
-left: 40px;
+top: 50px;
+left: 20px;
+text-align: center;
 
 }
-#player1Score h2{
-top: 30px;
 
+#player1ScoreText{
+top: 1px;
+left: 10px;
+position: absolute;
 }
 
 #player2Score{
@@ -94,13 +99,18 @@ top: 30px;
   width: 40px;
   height: 40px;
   position: absolute;
-  top: 40px;
-  left: 1250px;
+  top: 50px;
+  left: 1270px;
+  text-align: center;
+}
 
+#player2ScoreText{
+top: 1px;
+left: 1260px;
+position: absolute;
 
 
 }
-
 
   
 

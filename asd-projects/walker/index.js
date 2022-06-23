@@ -161,10 +161,8 @@ function runProgram() {
 
   function repositionGameItem() {
 
-    //var boardWidth = $('#board').width();
     var boardHeight = $('board').height();
-    //var boardTop = $('board').top();
-    //var boardLeft  = $('board').left();
+  
 
     positionX = positionX + speedX; //for walker 1
     positionY = positionY + speedY;
