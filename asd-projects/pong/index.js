@@ -10,8 +10,11 @@ function runProgram() {
   // Constant Variables
   const FRAME_RATE = 60;
   const FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
-  const BOARD_WIDTH = $("#board").width() - 50;
-  const BOARD_HEIGHT = $("#board").height() - 50;
+  const BALL_SIZE = 50;
+  const BOARD_WIDTH = $("#board").width() - BALL_SIZE;
+  const BOARD_HEIGHT = $("#board").height() - BALL_SIZE;
+  const PADDLE_SIZE = 100;
+  const BOARD_HEIGHT_PADDLE = $("#board").height() - PADDLE_SIZE; 
 
   //key variables
   var KEY = {
@@ -21,9 +24,9 @@ function runProgram() {
     "DOWN": 40,
   }
 
-  var updatedScore1 = 0;
-  var updatedScore2 = 0;
-
+  var updatedScore1 = 1;
+  var updatedScore2 = 1;
+  
   // Game Item Objects
 
   var ball = properties('#ball');
@@ -56,7 +59,6 @@ function runProgram() {
 
     doCollide(leftPaddle, ball);
     doCollide(rightPaddle, ball);
-
 
   }
 
@@ -122,12 +124,11 @@ function runProgram() {
     else if (gamePiece.y < 0) {
       gamePiece.speedY *= -1;
     }
-    else if (gamePiece.y > BOARD_HEIGHT) {
+    else if (gamePiece.y > BOARD_HEIGHT || gamePiece.y > BOARD_HEIGHT_PADDLE) {
       gamePiece.speedY *= -1;
     }
-
   }
-
+  
   function doCollide(obj1, obj2) {
 
     // TODO: calculate and store the remaining
@@ -152,47 +153,50 @@ function runProgram() {
     }
     else return false;
 
-    function moveObject(object) {
-
-      //moving the objects
-      object.x += object.speedX;
-      object.y += object.speedY;
-
-      //drawing the objects
-      $(object.id).css("left", object.x);
-      $(object.id).css("top", object.y);
-
-    }
-
-    function startBall() {
-      ball.speedX = randomNumber = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
-      ball.speedY = randomNumber = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
-      ball.x = 630;
-      ball.y = 250;
-
-    }
-
-    function properties(elementId) {
-
-      var gameObject = {};
-      gameObject.id = elementId;
-      gameObject.x = parseFloat($(elementId).css('left'));
-      gameObject.y = parseFloat($(elementId).css('top'));
-      gameObject.width = $(elementId).width();
-      gameObject.height = $(elementId).height();
-      gameObject.speedX = 0;
-      gameObject.speedY = 0;
-      return gameObject;
-
-    }
-
-    function endGame() {
-      // stop the interval timer
-      clearInterval(interval);
-
-      // turn off event handlers
-      $(document).off();
-    }
 
   }
+
+  function moveObject(object) {
+
+    //moving the objects
+    object.x += object.speedX;
+    object.y += object.speedY;
+
+    //drawing the objects
+    $(object.id).css("left", object.x);
+    $(object.id).css("top", object.y);
+
+  }
+
+  function startBall() {
+    ball.speedX = randomNumber = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
+    ball.speedY = randomNumber = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
+    ball.x = 630;
+    ball.y = 250;
+
+  }
+
+  function properties(elementId) {
+
+    var gameObject = {};
+    gameObject.id = elementId;
+    gameObject.x = parseFloat($(elementId).css('left'));
+    gameObject.y = parseFloat($(elementId).css('top'));
+    gameObject.width = $(elementId).width();
+    gameObject.height = $(elementId).height();
+    gameObject.speedX = 0;
+    gameObject.speedY = 0;
+    return gameObject;
+
+  }
+
+  function endGame() {
+    // stop the interval timer
+    clearInterval(interval);
+
+    // turn off event handlers
+    $(document).off();
+  }
+
 }
+
