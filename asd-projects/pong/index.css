@@ -34,7 +34,6 @@ body {
   position: absolute;
   top: 230px;
   left: 1200px;
-
 }
 
 #ball {
@@ -73,6 +72,24 @@ body {
   top: 30px;
   left: 430px;
   height: 30px;
+}
+
+#instructions_container{
+  left: 28%;
+  top: 30%;
+  width: 40%;
+  padding: 20px;
+  z-index: 1111;
+  text-align: center;
+  background-color: rgb(255, 203, 92);
+  border: 4px solid rgb(255, 255, 255);
+  position: absolute;
+  display: none;
+}
+
+#close_button {
+  float: right;
+  cursor: pointer;
 }
 
 #player1Score {

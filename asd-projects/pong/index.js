@@ -14,7 +14,7 @@ function runProgram() {
   const BOARD_WIDTH = $("#board").width() - BALL_SIZE;
   const BOARD_HEIGHT = $("#board").height() - BALL_SIZE;
   const PADDLE_SIZE = 100;
-  const BOARD_HEIGHT_PADDLE = $("#board").height() - PADDLE_SIZE; 
+  const BOARD_HEIGHT_PADDLE = $("#board").height() - PADDLE_SIZE;
 
   //key variables
   var KEY = {
@@ -26,7 +26,7 @@ function runProgram() {
 
   var updatedScore1 = 1;
   var updatedScore2 = 1;
-  
+
   // Game Item Objects
 
   var ball = properties('#ball');
@@ -37,6 +37,12 @@ function runProgram() {
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);
   $(document).on('keyup', handleKeyUp);
+  $("#instructions").on("click", function () {
+    $("#instructions_container").show();
+  })
+  $("#close_button").on("click", () => {
+    $("#instructions_container").hide();
+  })
   startBall();
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -124,79 +130,83 @@ function runProgram() {
     else if (gamePiece.y < 0) {
       gamePiece.speedY *= -1;
     }
-    else if (gamePiece.y > BOARD_HEIGHT || gamePiece.y > BOARD_HEIGHT_PADDLE) {
+    else if (gamePiece.y > BOARD_HEIGHT && gamePiece.y > BOARD_HEIGHT_PADDLE) {
       gamePiece.speedY *= -1;
     }
   }
-  
-  function doCollide(obj1, obj2) {
-
-    // TODO: calculate and store the remaining
-    // sides of obj1
-    obj1.leftX = obj1.x;
-    obj1.topY = obj1.y;
-    obj1.right = obj1.x + obj1.width;
-    obj1.bottom = obj1.y + obj1.height;
-
-    // TODO: Do the same for obj2
-
-    obj2.leftX = obj2.x;
-    obj2.topY = obj2.y;
-    obj2.right = obj2.x + obj2.width;
-    obj2.bottom = obj2.y + obj2.height;
-
-    // TODO: Return true if they are overlapping, false otherwise
-
-    if (obj1.X < obj2.right && obj1.right > obj2.leftX && obj11.topY <
-      obj2.bottom && obj1.bottom > obj2.topY) {
-      return true;
-    }
-    else return false;
 
 
+
+function doCollide(obj1, obj2) {
+
+  // TODO: calculate and store the remaining
+  // sides of obj1
+  obj1.leftX = obj1.x;
+  obj1.topY = obj1.y;
+  obj1.right = obj1.x + obj1.width;
+  obj1.bottom = obj1.y + obj1.height;
+
+  // TODO: Do the same for obj2
+
+  obj2.leftX = obj2.x;
+  obj2.topY = obj2.y;
+  obj2.right = obj2.x + obj2.width;
+  obj2.bottom = obj2.y + obj2.height;
+
+  // TODO: Return true if they are overlapping, false otherwise
+
+  if (obj1.X < obj2.right && obj1.right > obj2.leftX && obj11.topY <
+    obj2.bottom && obj1.bottom > obj2.topY) {
+    obj2.speedX *= -1;
   }
+  else return false;
 
-  function moveObject(object) {
 
-    //moving the objects
-    object.x += object.speedX;
-    object.y += object.speedY;
+}
 
-    //drawing the objects
-    $(object.id).css("left", object.x);
-    $(object.id).css("top", object.y);
 
-  }
 
-  function startBall() {
-    ball.speedX = randomNumber = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
-    ball.speedY = randomNumber = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
-    ball.x = 630;
-    ball.y = 250;
+function moveObject(object) {
 
-  }
+  //moving the objects
+  object.x += object.speedX;
+  object.y += object.speedY;
 
-  function properties(elementId) {
+  //drawing the objects
+  $(object.id).css("left", object.x);
+  $(object.id).css("top", object.y);
 
-    var gameObject = {};
-    gameObject.id = elementId;
-    gameObject.x = parseFloat($(elementId).css('left'));
-    gameObject.y = parseFloat($(elementId).css('top'));
-    gameObject.width = $(elementId).width();
-    gameObject.height = $(elementId).height();
-    gameObject.speedX = 0;
-    gameObject.speedY = 0;
-    return gameObject;
+}
 
-  }
+function startBall() {
+  ball.speedX = randomNumber = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
+  ball.speedY = randomNumber = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
+  ball.x = 630;
+  ball.y = 250;
 
-  function endGame() {
-    // stop the interval timer
-    clearInterval(interval);
+}
 
-    // turn off event handlers
-    $(document).off();
-  }
+function properties(elementId) {
+
+  var gameObject = {};
+  gameObject.id = elementId;
+  gameObject.x = parseFloat($(elementId).css('left'));
+  gameObject.y = parseFloat($(elementId).css('top'));
+  gameObject.width = $(elementId).width();
+  gameObject.height = $(elementId).height();
+  gameObject.speedX = 0;
+  gameObject.speedY = 0;
+  return gameObject;
+
+}
+
+function endGame() {
+  // stop the interval timer
+  clearInterval(interval);
+
+  // turn off event handlers
+  $(document).off();
+}
 
 }
 
