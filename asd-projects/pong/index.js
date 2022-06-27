@@ -63,8 +63,7 @@ function runProgram() {
     wallCollision(leftPaddle);
     wallCollision(rightPaddle);
 
-    doCollide(leftPaddle, ball);
-    doCollide(rightPaddle, ball);
+
     ballPaddle();
 
   }
@@ -156,7 +155,7 @@ function runProgram() {
 
     // TODO: Return true if they are overlapping, false otherwise
 
-    if (obj1.X < obj2.right && obj1.right > obj2.leftX && obj11.topY <
+    if (obj1.leftX < obj2.right && obj1.right > obj2.leftX && obj1.topY <
       obj2.bottom && obj1.bottom > obj2.topY) {
       return true;
     }
@@ -172,7 +171,6 @@ function runProgram() {
     else if (doCollide(rightPaddle, ball) === true) {
       ball.speedX *= -1;
     }
-    else;
   }
 
 
