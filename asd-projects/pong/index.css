@@ -129,6 +129,25 @@ position: absolute;
 
 }
 
-  
+#endgame{
+  width: 500px;
+  height: 150px;
+  background-color: aliceblue;
+  position: absolute;
+  top:200px;
+  left: 400px;
+  border-radius: 20px;
+  text-align: center;
+  display: none;
 
+}
 
+#restart{
+  background-color:lightgrey;
+  border:rgb(255, 255, 255) solid 1px;
+}
+
+#continue{
+  background-color:lightgrey;
+  border:rgb(255, 255, 255) solid 1px;
+}

@@ -65,6 +65,7 @@ function runProgram() {
 
 
     ballPaddle();
+    points();
 
   }
 
@@ -132,6 +133,12 @@ function runProgram() {
     }
     else if (gamePiece.y > BOARD_HEIGHT && gamePiece.y > BOARD_HEIGHT_PADDLE) {
       gamePiece.speedY *= -1;
+    }
+  }
+
+  function points(){
+    if (updatedScore1 >= 8 || updatedScore2 >= 8){
+      endGame();
     }
   }
 
