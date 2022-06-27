@@ -65,6 +65,7 @@ function runProgram() {
 
     doCollide(leftPaddle, ball);
     doCollide(rightPaddle, ball);
+    ballPaddle();
 
   }
 
@@ -137,76 +138,86 @@ function runProgram() {
 
 
 
-function doCollide(obj1, obj2) {
+  function doCollide(obj1, obj2) {
 
-  // TODO: calculate and store the remaining
-  // sides of obj1
-  obj1.leftX = obj1.x;
-  obj1.topY = obj1.y;
-  obj1.right = obj1.x + obj1.width;
-  obj1.bottom = obj1.y + obj1.height;
+    // TODO: calculate and store the remaining
+    // sides of obj1
+    obj1.leftX = obj1.x;
+    obj1.topY = obj1.y;
+    obj1.right = obj1.x + obj1.width;
+    obj1.bottom = obj1.y + obj1.height;
 
-  // TODO: Do the same for obj2
+    // TODO: Do the same for obj2
 
-  obj2.leftX = obj2.x;
-  obj2.topY = obj2.y;
-  obj2.right = obj2.x + obj2.width;
-  obj2.bottom = obj2.y + obj2.height;
+    obj2.leftX = obj2.x;
+    obj2.topY = obj2.y;
+    obj2.right = obj2.x + obj2.width;
+    obj2.bottom = obj2.y + obj2.height;
 
-  // TODO: Return true if they are overlapping, false otherwise
+    // TODO: Return true if they are overlapping, false otherwise
 
-  if (obj1.X < obj2.right && obj1.right > obj2.leftX && obj11.topY <
-    obj2.bottom && obj1.bottom > obj2.topY) {
-    obj2.speedX *= -1;
+    if (obj1.X < obj2.right && obj1.right > obj2.leftX && obj11.topY <
+      obj2.bottom && obj1.bottom > obj2.topY) {
+      return true;
+    }
+
+    else return false;
+
   }
-  else return false;
+
+  function ballPaddle() {
+    if (doCollide(leftPaddle, ball) === true) {
+      ball.speedX *= -1;
+    }
+    else if (doCollide(rightPaddle, ball) === true) {
+      ball.speedX *= -1;
+    }
+    else;
+  }
 
 
-}
 
+  function moveObject(object) {
 
+    //moving the objects
+    object.x += object.speedX;
+    object.y += object.speedY;
 
-function moveObject(object) {
+    //drawing the objects
+    $(object.id).css("left", object.x);
+    $(object.id).css("top", object.y);
 
-  //moving the objects
-  object.x += object.speedX;
-  object.y += object.speedY;
+  }
 
-  //drawing the objects
-  $(object.id).css("left", object.x);
-  $(object.id).css("top", object.y);
+  function startBall() {
+    ball.speedX = randomNumber = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
+    ball.speedY = randomNumber = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
+    ball.x = 630;
+    ball.y = 250;
 
-}
+  }
 
-function startBall() {
-  ball.speedX = randomNumber = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
-  ball.speedY = randomNumber = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
-  ball.x = 630;
-  ball.y = 250;
+  function properties(elementId) {
 
-}
+    var gameObject = {};
+    gameObject.id = elementId;
+    gameObject.x = parseFloat($(elementId).css('left'));
+    gameObject.y = parseFloat($(elementId).css('top'));
+    gameObject.width = $(elementId).width();
+    gameObject.height = $(elementId).height();
+    gameObject.speedX = 0;
+    gameObject.speedY = 0;
+    return gameObject;
 
-function properties(elementId) {
+  }
 
-  var gameObject = {};
-  gameObject.id = elementId;
-  gameObject.x = parseFloat($(elementId).css('left'));
-  gameObject.y = parseFloat($(elementId).css('top'));
-  gameObject.width = $(elementId).width();
-  gameObject.height = $(elementId).height();
-  gameObject.speedX = 0;
-  gameObject.speedY = 0;
-  return gameObject;
+  function endGame() {
+    // stop the interval timer
+    clearInterval(interval);
 
-}
-
-function endGame() {
-  // stop the interval timer
-  clearInterval(interval);
-
-  // turn off event handlers
-  $(document).off();
-}
+    // turn off event handlers
+    $(document).off();
+  }
 
 }
 
