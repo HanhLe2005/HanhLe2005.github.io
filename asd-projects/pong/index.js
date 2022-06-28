@@ -76,19 +76,19 @@ function runProgram() {
   function handleKeyDown(event) {
     if (event.which === KEY.W) {
       console.log("W pressed");
-      leftPaddle.speedY = -5;
+      leftPaddle.speedY = -10;
     }
     else if (event.which === KEY.S) {
       console.log("S pressed");
-      leftPaddle.speedY = 5;
+      leftPaddle.speedY = 10;
     }
     else if (event.which === KEY.UP) {
       console.log("Up pressed");
-      rightPaddle.speedY = -5;
+      rightPaddle.speedY = -10;
     }
     else if (event.which === KEY.DOWN) {
       console.log("Down pressed");
-      rightPaddle.speedY = 5;
+      rightPaddle.speedY = 10;
     }
   }
 
@@ -140,6 +140,13 @@ function runProgram() {
     if (updatedScore1 >= 8 || updatedScore2 >= 8){
       endGame();
     }
+    else if (updatedScore1 === 4 || updatedScore2 === 4){
+      ball.speedX = randomNumber = (Math.random() * 5 + 6) * (Math.random() > 0.5 ? -1 : 1);
+      ball.speedY = randomNumber = (Math.random() * 5 + 6) * (Math.random() > 0.5 ? -1 : 1);
+
+
+    }
+  
   }
 
 
@@ -195,8 +202,8 @@ function runProgram() {
   }
 
   function startBall() {
-    ball.speedX = randomNumber = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
-    ball.speedY = randomNumber = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
+    ball.speedX = randomNumber = (Math.random() * 5 + 4) * (Math.random() > 0.5 ? -1 : 1);
+    ball.speedY = randomNumber = (Math.random() * 5 + 4) * (Math.random() > 0.5 ? -1 : 1);
     ball.x = 630;
     ball.y = 250;
 
