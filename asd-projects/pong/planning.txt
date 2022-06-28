@@ -9,7 +9,7 @@ User Story / Gameplay:
         When the ball hits the opponents wall, the opposing side will get a point. The left player will use the WS keys
         and the right player will use the up and down keys.
         After three points for one player, the speed of the ball will increase. After 5 points, the leading side will
-        get another ball. The player to get to 7 points wins!
+        get another ball. The player to get to 10 points wins!
 
 2. What are the conditions when the game begins?
 

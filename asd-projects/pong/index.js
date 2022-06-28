@@ -137,7 +137,7 @@ function runProgram() {
   }
 
   function points(){
-    if (updatedScore1 >= 8 || updatedScore2 >= 8){
+    if (updatedScore1 >= 11 || updatedScore2 >= 11){
       endGame();
     }
     else if (updatedScore1 === 4 || updatedScore2 === 4){
