@@ -34,9 +34,9 @@ function runProgram() {
   var rightPaddle = properties('#rightPaddle');
 
   // one-time setup
-  let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);
   $(document).on('keyup', handleKeyUp);
+  $("#start").on("click", start());
   $("#instructions").on("click", function () {
     $("#instructions_container").show();
   })
@@ -65,7 +65,6 @@ function runProgram() {
 
 
     ballPaddle();
-    points();
 
   }
 
@@ -117,16 +116,22 @@ function runProgram() {
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
+  function start(){
+    let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
+  }
+
   function wallCollision(gamePiece) {
     if (gamePiece.x > BOARD_WIDTH) {
       gamePiece.speedX *= -1;
       $('#player1Score').text(updatedScore1++);
       startBall();
+      points();
     }
     else if (gamePiece.x < 0) {
       gamePiece.speedX *= -1;
       $('#player2Score').text(updatedScore2++);
       startBall();
+      points();
     }
     else if (gamePiece.y < 0) {
       gamePiece.speedY *= -1;
@@ -140,15 +145,13 @@ function runProgram() {
     if (updatedScore1 >= 11 || updatedScore2 >= 11){
       endGame();
     }
-    else if (updatedScore1 === 4 || updatedScore2 === 4){
-      ball.speedX = randomNumber = (Math.random() * 5 + 6) * (Math.random() > 0.5 ? -1 : 1);
-      ball.speedY = randomNumber = (Math.random() * 5 + 6) * (Math.random() > 0.5 ? -1 : 1);
-
+    else if (updatedScore1 >= 4 || updatedScore2 >= 4){
+      ball.speedX = (Math.random() * 5 + 6) * (Math.random() > 0.5 ? -1 : 1);
+      ball.speedY = (Math.random() * 5 + 6) * (Math.random() > 0.5 ? -1 : 1);
 
     }
   
   }
-
 
 
   function doCollide(obj1, obj2) {
@@ -202,8 +205,8 @@ function runProgram() {
   }
 
   function startBall() {
-    ball.speedX = randomNumber = (Math.random() * 5 + 4) * (Math.random() > 0.5 ? -1 : 1);
-    ball.speedY = randomNumber = (Math.random() * 5 + 4) * (Math.random() > 0.5 ? -1 : 1);
+    ball.speedX = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
+    ball.speedY = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
     ball.x = 630;
     ball.y = 250;
 
