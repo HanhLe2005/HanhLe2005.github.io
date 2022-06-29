@@ -26,7 +26,7 @@ function runProgram() {
 
   var updatedScore1 = 1;
   var updatedScore2 = 1;
-
+  let interval;
   // Game Item Objects
 
   var ball = properties('#ball');
@@ -36,7 +36,8 @@ function runProgram() {
   // one-time setup
   $(document).on('keydown', handleKeyDown);
   $(document).on('keyup', handleKeyUp);
-  $("#start").on("click", start());
+  $("#start").on("click", start);
+  $('#change_themes').on("click", changeTheme);
   $("#instructions").on("click", function () {
     $("#instructions_container").show();
   })
@@ -117,7 +118,7 @@ function runProgram() {
   ////////////////////////////////////////////////////////////////////////////////
 
   function start(){
-    let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
+    interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   }
 
   function wallCollision(gamePiece) {
@@ -209,6 +210,21 @@ function runProgram() {
     ball.speedY = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
     ball.x = 630;
     ball.y = 250;
+
+  }
+
+  function changeTheme(){
+    $('#board').css('background-color', 'rgb(204, 255, 204)');
+    $('#board').css('border', '3px solid white');
+    $('body').css('background-color', 'black');
+    $('#start').css('border', '3px solid brown');
+    $('#change_themes').css('border', '3px solid brown');
+    $('#instructions').css('border', '3px solid brown');
+    $('#player1Score').css('border', '3px solid brown');
+    $('#player2Score').css('border', '3px solid brown');
+    $('#ball').css('background-color', ' brown');
+
+
 
   }
 

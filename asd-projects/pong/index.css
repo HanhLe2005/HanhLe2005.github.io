@@ -130,37 +130,14 @@ position: absolute;
 }
 
 #start{
-  width: 300px;
-  height: 150px;
-  background-color:rgb(217, 137, 228);
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  margin: 6px;
+  border:3px solid rgb(233, 35, 91);
   position: absolute;
-  top:200px;
-  left: 500px;
-  border-radius: 20px;
-  text-align: center;
-  border: solid white 2px;
+  left: 630px;
+  top: 30px;
+  height: 30px;
 }
 
-#endgame{
-  width: 500px;
-  height: 150px;
-  background-color: aliceblue;
-  position: absolute;
-  top:200px;
-  left: 400px;
-  border-radius: 20px;
-  text-align: center;
-  display: none;
-
-}
-
-#restart{
-  background-color:lightgrey;
-  border:rgb(255, 255, 255) solid 1px;
-}
-
-#continue{
-  background-color:lightgrey;
-  border:rgb(255, 255, 255) solid 1px;
-}
 

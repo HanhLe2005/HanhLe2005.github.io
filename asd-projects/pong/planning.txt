@@ -1,9 +1,8 @@
 User Story / Gameplay:
 
 1. Describe the gameplay
-    There will be two pong sides and a ball on each side. Each player can name their side at the start.
-    The ball will start in the center, with a pop up box asking which side to start the game at. The ball
-    will start on that side, when the ball hit the opponents pong, itll bounce back. 
+    There will be two pong sides and a ball on each side.  The ball will start in the center. 
+    When the ball hit the opponents pong, itll bounce back. 
 
     instructions: Welcome to Pong! The goal of this game is to score the most points against your opponenent.
         When the ball hits the opponents wall, the opposing side will get a point. The left player will use the WS keys
@@ -14,7 +13,7 @@ User Story / Gameplay:
 2. What are the conditions when the game begins?
 
     When the ball hits the opponents wall, the opposing side will get a point. After three points for one player, the speed of the ball
-    will increase. After 5 points, the leading side will get another ball. The player to get to 7 points wins!
+    will increase. The player to get to 11 points wins!
 
 3. Does the game have an end? If so, what are the conditions for when it ends?
 
@@ -23,9 +22,8 @@ User Story / Gameplay:
 4. What ifs will there be?
 
     If the balls hit the box, it'll bounce back in. If the opposing side hits your side, they get a point.
-    If you hit the restart button, the game will go back to the way it was, if you press continue, the pop
-    up will disappear. If there are multiples balls and they hit each other, the balls will move back to the
-    leading players side.
+    If you hit the rtart button, the game will begin, if you press instructions, the pop
+    up will appear. If the change theme button is pressed, the colors will change.
 
 Visual Game Components:
 
@@ -49,8 +47,7 @@ Events / Logic:
 
 1. What events will occur in this game? (timer events, keyboard events, clicking events?)
 
-    The game will pause for around 5-7 seconds after every point. The ball will take around 4 seconds to go to the opposite side,
-    but this value will change when the points increase. When the WS keys are clicked, it will control
+    When the WS keys are clicked, it will control
     the motion of the left board. If the Up and Down keys are clicked, it'll control the motion of the right board.
     At the begining it'll show you a main menu screen and ask for names and what theme you would like to play pong,
     when these are clicked, it'll create the game. There will also be buttons after you reach 7 points, that'll affect
