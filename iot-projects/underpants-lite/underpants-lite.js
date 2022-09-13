@@ -31,6 +31,16 @@ var _ = {};
 * _.typeOf([1,2,3]) -> "array"
 */
 
+_.typeOf = function (value){
+    if (Array.isArray(value) === true){
+        return "array";
+    }
+    if (value === null){
+        return "null";
+    }
+    return typeof value; 
+
+};
 
 /** _.first
 * Arguments:
@@ -50,6 +60,25 @@ var _ = {};
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
+_.first = function (array, number){
+    if (number <= 0){
+        return [];
+    }
+    if (Array.isArray(array) === false){
+        return [];
+    }
+    if (typeOf(number) >= array.length){
+        return array;
+    }
+    if (number !== "number"){
+        return array[0];
+    }
+    var result = [];
+    for (var i = 0; i < number; i++){
+        result.push(array[i]);
+    }
+    return result;
+};
 
 /** _.last
 * Arguments:
@@ -69,6 +98,26 @@ var _ = {};
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function (array, number){
+    if (number <= 0){
+        return [];
+    }
+    if (Array.isArray(array) === false){
+        return [];
+    }
+    if (number >= array.length){
+        return array;
+    }
+    if (typeOf(number) !== "number"){
+        return array[array.length - 1];
+    }
+    var result = [];
+    for (var i = array.length - 1; i > number; i--){
+        result.push(array[i]);
+    }
+    return result;
+};
+
 
 /** _.indexOf
 * Arguments:
@@ -87,6 +136,18 @@ var _ = {};
 */
 
 
+_.indexOf = function (array, value){
+	for (var i = 0; i < array.length; i ++){
+	if (value === array[i]){
+        return array[i];}
+    else return -1;
+ 
+}
+ 
+ 
+ 
+}
+
 /** _.contains
 * Arguments:
 *   1) An array
@@ -101,6 +162,7 @@ var _ = {};
 *   _.contains([1,"two", 3.14], "two") -> true
 *   _.contains([1,"two", 3.14], "three") -> false
 */
+
 
 
 /** _.each
@@ -136,6 +198,23 @@ var _ = {};
 * Extra Credit:
 *   use _.each in your implementation
 */
+
+_.filter = function (arr, fun){
+    var result = [];
+    
+    for (var i = 0; i < arr.length; i++){
+     var isGood = fun(arr[i], i, arr);
+      if (isGood === true){
+        result.push(arr[i]);
+      }
+    }
+    return result;
+  };
+  function shortFood(value, index, array){
+    return (value.length <= 5);
+  }
+  
+  var filteredFood = _.filter (food, shortFood);
 
 
 /** _.map
