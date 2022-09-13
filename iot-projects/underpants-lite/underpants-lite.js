@@ -67,10 +67,10 @@ _.first = function (array, number){
     if (Array.isArray(array) === false){
         return [];
     }
-    if (typeOf(number) >= array.length){
+    if (number >= array.length){
         return array;
     }
-    if (number !== "number"){
+    if (typeof number !== "number"){
         return array[0];
     }
     var result = [];
@@ -108,12 +108,12 @@ _.last = function (array, number){
     if (number >= array.length){
         return array;
     }
-    if (typeOf(number) !== "number"){
+    if (typeof number !== "number"){
         return array[array.length - 1];
     }
     var result = [];
     for (var i = array.length - 1; i > number; i--){
-        result.push(array[i]);
+        result.push(array[i] - 1);
     }
     return result;
 };
