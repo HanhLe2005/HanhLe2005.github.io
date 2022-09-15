@@ -112,8 +112,8 @@ _.last = function (array, number){
         return array[array.length - 1];
     }
     var result = [];
-    for (var i = array.length - 1; i > number; i--){
-        result.push(array[i] - 1);
+    for (var i = array.length - number; i < array.length; i++){
+        result.push(array[i]);
     }
     return result;
 };
@@ -139,12 +139,10 @@ _.last = function (array, number){
 _.indexOf = function (array, value){
 	for (var i = 0; i < array.length; i ++){
 	if (value === array[i]){
-        return array[i];}
+        return array[value];}
     else return -1;
  
 }
- 
- 
  
 }
 
@@ -163,7 +161,10 @@ _.indexOf = function (array, value){
 *   _.contains([1,"two", 3.14], "three") -> false
 */
 
+_.contains = function(collection, func){
 
+    
+}
 
 /** _.each
 * Arguments:
@@ -210,11 +211,7 @@ _.filter = function (arr, fun){
     }
     return result;
   };
-  function shortFood(value, index, array){
-    return (value.length <= 5);
-  }
   
-  var filteredFood = _.filter (food, shortFood);
 
 
 /** _.map
