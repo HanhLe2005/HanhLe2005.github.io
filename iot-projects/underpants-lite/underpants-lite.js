@@ -139,12 +139,14 @@ _.last = function (array, number){
 _.indexOf = function (array, value){
 	for (var i = 0; i < array.length; i ++){
 	if (value === array[i]){
-        return array[value];}
-    else return -1;
+        return i;}}
+    if (value !== array[i]){
+        return -1;
+    }
  
 }
  
-}
+
 
 /** _.contains
 * Arguments:
@@ -161,10 +163,15 @@ _.indexOf = function (array, value){
 *   _.contains([1,"two", 3.14], "three") -> false
 */
 
-_.contains = function(collection, func){
-
-    
-}
+_.contains = function(array, value){
+    for (var i = 0; i < array.length; i ++){
+        if (value === array[i]){
+            return true;}
+        if (value !== array[i]){
+            return false;}
+        }
+     
+    }
 
 /** _.each
 * Arguments:
@@ -211,7 +218,11 @@ _.filter = function (arr, fun){
     }
     return result;
   };
+  function shortFood(value, index, array){
+    return (value.length <= 5);
+  }
   
+  var filteredFood = _.filter (food, shortFood);
 
 
 /** _.map
