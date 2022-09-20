@@ -189,6 +189,20 @@ _.contains = function(array, value){
 *      -> should log "a" "b" "c" to the console
 */
 
+_.each = function(collection, func){
+	
+    if (typeOf(collection) === array){
+	for(i = 0; i < array.length; i++){
+        func(element[i], index[i], collection[i]);}
+    }
+	if (typeOf(collection) === object){
+	for(i = 0; i < array.length; i++){
+func(collection[i], collection.key(i),collection[i])}
+}
+ 
+ 
+ 
+}
 
 /** _.filter
 * Arguments:
@@ -242,6 +256,27 @@ _.filter = function (arr, fun){
 *   _.map([1,2,3,4], function(e){ return e * 2; }) -> [2,4,6,8]
 */
 
+ 
+_.map = function(collection, func){
+ 
+    var result = []
+     
+        if (typeOf(collection) === array){
+        for(i = 0; i < array.length; i++){
+            func(collection[i], i, collection[i]);
+               result.push(array[i]);}}
+     
+            return result;
+        }
+        if (typeOf(collection) === object){
+        for(i = 0; i < array.length; i++){
+    func(collection[i],collection.i, collection[i]);
+                result.push(array[i]);}
+     
+            return result
+        }
+    
+    
 
 /** _.reject
 * Arguments:
@@ -257,7 +292,19 @@ _.filter = function (arr, fun){
 *
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){ return e%2 === 0}; ) -> [1,3,5]
-*/
+**/
+
+
+_.reject = function(arr, func){
+    var result = []
+     for (var i = 0; i < arr.length; i++){
+         var isGood = fun(arr[i], i, arr);
+          if (isGood === false){
+            result.push(arr[i]);
+          }
+        }
+        return result;
+
 
 
 /** _.partition
@@ -279,6 +326,27 @@ _.filter = function (arr, fun){
 }
 */
 
+_.partition = function (array, func){
+ 
+    var resultT = [];
+    var resultF = [];
+     
+    for (var i = 0; i < array.length; i++){
+    var answer = func(array[i], i, array)}
+    if (answer === true){
+    resultT.push(array[i]);
+    }
+     
+    for (var i = 0; i < array.length; i++){
+    var answer = func(array[i], i, array)}
+    if (answer === false){
+    resultF.push(array[i]);
+    }}
+     
+
+
+    }
+    
 
 /** _.every
 * Arguments:
@@ -302,6 +370,29 @@ _.filter = function (arr, fun){
 *   _.every([1,2,3], function(e){ return e % 2 === 0}; ) -> false
 */
 
+_.every = function (collection, func){
+    if (typeOf(collection) === array){
+       for (var i = 1; i < collection.length; i++){
+           var placeholder = func(collection[i], i, collection);
+           placeholder2.push(placeholder)
+   }
+    
+   if (typeOf(collection) === object){
+       for(i = 0; i < array.length; i++){
+   var placehol = func(object[i], object(key(i)), collection[i]);
+   placeholder2.push(placehol)}
+   }
+    
+    
+   var placeholder2 = [];
+    
+       if (placeholder2 === true){
+   return "true"};
+       if (placeholder2 === false){
+   return "false"};
+   }
+   }
+   
 
 /** _.some
 * Arguments:
@@ -336,6 +427,21 @@ _.filter = function (arr, fun){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
+_.pluck = function(array, property){
+ 
+    var feathers = [];
+    for(var i = 0; i < array.length; i++){
+    if (property === array[i]){
+    var check = map(array[i]);
+    feathers.push(check);
+     
+    }
+    }
+     
+     
+    }
+    
 
 
 //////////////////////////////////////////////////////////////////////
