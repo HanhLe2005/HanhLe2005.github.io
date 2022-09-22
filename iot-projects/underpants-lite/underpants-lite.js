@@ -188,7 +188,9 @@ _.contains = function (array, value) {
 _.each = function (collection, func) {
   if (typeOf(collection) === array) {
     for (i = 0; i < array.length; i++) {
-      func(element[i], index[i], collection[i]);
+      func(element[i]);
+      func(index[i]);
+      func(collection[i]);
     }
   }
   if (typeOf(collection) === object) {
