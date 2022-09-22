@@ -163,10 +163,9 @@ _.contains = function (array, value) {
     if (value === array[i]) {
       return true;
     }
-    if (value !== array[i]) {
-      return false;
-    }
   }
+      return false;
+    
 };
 
 /** _.each
@@ -185,15 +184,13 @@ _.contains = function (array, value) {
  *      -> should log "a" "b" "c" to the console
  */
 
-_.each = function (collection, func) {
-  if (typeOf(collection) === array) {
-    for (i = 0; i < array.length; i++) {
-      func(element[i]);
-      func(index[i]);
-      func(collection[i]);
+_.each = function(collection, func) {
+  if (_.typeOf(collection) === "array") {
+    for (var i = 0; i < collection.length; i++) {
+      func(collection[i], i, collection);
     }
   }
-  if (typeOf(collection) === object) {
+  if (_.typeOf(collection) === "object") {
     for (i = 0; i < array.length; i++) {
       func(collection[i], collection.key(i), collection[i]);
     }
