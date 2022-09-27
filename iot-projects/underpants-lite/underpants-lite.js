@@ -191,9 +191,13 @@ _.each = function(collection, func) {
     }
   }
   if (_.typeOf(collection) === "object") {
-    for (i = 0; i < array.length; i++) {
+    for (var i = 0; i < array.length; i++) {
       func(collection[i], collection.key(i), collection[i]);
     }
+  }
+
+  if (_.typeOf(collection) = "object"){
+    
   }
 };
 
