@@ -36,14 +36,14 @@ http
         res.write("Results:\n");
         var victoryOrder = sortTogether(racers, results);
         for (i = 0; i < victoryOrder.length; i++) {
-          res.write(victoryOrder[i] + "/n");
+          res.write(victoryOrder[i] + "\n");
         }
       
         let d = new Date();
         let endTime = d.getTime();
 
         var duration = startTime - endTime;
-        res.end(duration + "/n");
+        res.end(duration + "\n");
       }
     );
   })
