@@ -11,7 +11,6 @@ http
 
     // TODO 7: Get the start time for the race
 
-    var Date = {};
     let d = new Date();
     let startTime = d.getTime();
 
@@ -36,15 +35,16 @@ http
         // TODO 10: add a callback function to the end of the async call to tally the results
         res.write("Results:\n");
         var victoryOrder = sortTogether(racers, results);
-        for (i = 0; i < victoryOrder.length; i++){
-          console.log(victoryOrder[i] + "/n");
+        for (i = 0; i < victoryOrder.length; i++) {
+          res.write(victoryOrder[i] + "/n");
         }
         var Date = {};
-        let d = Date;
+        let d = new Date();
         let endTime = d.getTime();
+
+        var duration = startTime - endTime;
+        res.end(duration + "/n");
       }
-      var duration = startTime - endTime;
-      res.end(duration + "/n");
     );
   })
   .listen(port);
