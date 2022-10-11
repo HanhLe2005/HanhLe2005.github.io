@@ -18,10 +18,33 @@ http
     // TODO 12: Make the whole thing parallel
     async.series(
       // TODO 9: Supply an array of functions
-      [],
+      [
+        function (callback) {
+          wrapper(callback);
+        },
+        function (callback) {
+          wrapper(callback);
+        },
+        function (callback) {
+          wrapper(callback);
+        },
+        function (callback) {
+          wrapper(callback);
+        },
+      ],
       function (error, results) {
         // TODO 10: add a callback function to the end of the async call to tally the results
+        res.write("Results:\n");
+        var victoryOrder = sortTogether(racers, results);
+        for (i = 0; i < victoryOrder.length; i++){
+          console.log(victoryOrder[i] + "/n");
+        }
+        var Date = {};
+        let d = Date;
+        let endTime = d.getTime();
       }
+      var duration = startTime - endTime;
+      res.end(duration + "/n");
     );
   })
   .listen(port);
