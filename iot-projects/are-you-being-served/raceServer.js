@@ -38,7 +38,7 @@ http
         for (i = 0; i < victoryOrder.length; i++) {
           res.write(victoryOrder[i] + "/n");
         }
-        var Date = {};
+      
         let d = new Date();
         let endTime = d.getTime();
 
