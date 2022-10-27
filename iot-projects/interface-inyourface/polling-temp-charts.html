@@ -118,7 +118,7 @@
             }
             if (value < regLowest) {
               regLowest = value;
-              $("#reg-lowest").text("Highest recorded value is " + value);
+              $("#reg-lowest").text("Lowest recorded value is " + value);
             }
           }
 
@@ -130,7 +130,7 @@
             }
             if (value < wsLowest) {
               wsLowest = value;
-              $("#ws-lowest").text("Highest recorded value is " + value);
+              $("#ws-lowest").text("Lowest recorded value is " + value);
             }
           }
 
@@ -151,6 +151,21 @@
 
           // TODO 4: WebSocket Polling
           // Create a new WebSocket connection here
+
+          var socket = new WebSocket(
+            "ws://f3dc5044859d.ngrok.io/pi/sensors/dht/temperature"
+          );
+          socket.onmessage = function (event) {
+            // Fill in the body of the onmessage function
+            var result = JSON.parse(event.data);
+            addDataPoint(result, wsData, wsChart);
+            updateWSRecords(value);
+          };
+
+          socket.onerror = function (error) {
+            // Fill in the body of the onerror function
+            console.log("error");
+          };
 
           function getTime() {
             var d = new Date();
