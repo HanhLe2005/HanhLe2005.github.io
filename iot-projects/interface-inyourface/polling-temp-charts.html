@@ -83,10 +83,10 @@
           }
 
           // TODO 1: Initialize high and low records
-          var regHighest = 500;
-          var regLowest = -500;
-          var wsHighest = 500;
-          var wsLowest = -500;
+          var regHighest = -500;
+          var regLowest = 500;
+          var wsHighest = -500;
+          var wsLowest = 500;
 
           $("#reg-chart-container").append(
             $("<p>")
@@ -113,7 +113,7 @@
           function updateRegRecords(value) {
             // Update the regular polling records
             if (value > regHighest) {
-              regHigest = value;
+              regHighest = value;
               $("#reg-highest").text("Highest recorded value is " + value);
             }
             if (value < regLowest) {
@@ -125,7 +125,7 @@
           function updateWSRecords(value) {
             // Update the WebSocket polling records
             if (value > wsHighest) {
-              wsHigest = value;
+              wsHighest = value;
               $("#ws-highest").text("Highest recorded value is " + value);
             }
             if (value < wsLowest) {
