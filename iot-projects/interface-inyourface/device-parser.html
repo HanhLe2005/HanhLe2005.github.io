@@ -92,12 +92,14 @@
                     var sensorsList = "";
                     $('#sensors').html(Object.keys(data).length + " sensors found!");
                     sensorsList = sensorsList + html;
-                    var html = for(var change in data){
-                    ("<li><a href=\"" + sensorsPath + change + "\">" + data[change].name + "</a></li>");}
+                    for(var change in data){
+                    var html = "<li><a href=\"" + sensorsPath + change + "\">" + data[change].name + "</a></li>";}
 
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log(errorThrown);
                 }
+                $('#sensors-list').html(sensorsList);
+                
                 });
             }
             });
