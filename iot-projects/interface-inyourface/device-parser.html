@@ -79,7 +79,8 @@
                     $('#doc').html(data.links.doc.title + " <a href=\"" + data.links.doc.rel + "\">" + data.links.doc.rel + "</a>");
 
                     // TODO 7: Generate the URL to the sensors of the device
-
+                    data.url = "http://devices.webofthings.io/pi";
+                    data.resources.sensors.url = "/sensors"
                     var sensorsPath = "data.url" + "data.resources.sensors.url" ;
 
 
@@ -92,9 +93,9 @@
                             // TODO 8: Create a success function that iterates over the list of sensors and displays them
                             var sensorsList = "";
                             $('#sensors').html(Object.keys(data).length + " sensors found!");
-                            sensorsList = sensorsList + html;
                             for(var change in data){
                             var html = "<li><a href=\"" + sensorsPath + change + "\">" + data[change].name + "</a></li>";
+                            sensorsList = sensorsList + html;
                             }
                             $('#sensors-list').html(sensorsList);
                         },
