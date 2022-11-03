@@ -64,50 +64,50 @@
             var sensorsPath = '';
 
             $.ajax({
-            // TODO 6: Add in the basic properties and error property of the object passed to the AJAX call
-            url: $('#host').val(),
-            method: 'GET',
-            dataType: 'json',
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.log(errorThrown);},
-            
-            success: function (data) {
-                // These two lines add links to the metadata and documentation of the device, respectively.
-                // data.links.meta.title and data.links.doc.title place little bits of plain text ("Metadata" and "Documentation", respectively) before the links themselves
-                $('#meta').html(data.links.meta.title + " <a href=\"" + data.links.meta.rel + "\">" + data.links.meta.rel + "</a>");
-                $('#doc').html(data.links.doc.title + " <a href=\"" + data.links.doc.rel + "\">" + data.links.doc.rel + "</a>");
-
-                // TODO 7: Generate the URL to the sensors of the device
-
-                var sensorsPath = "data.url" + "data.resources.sensors.url" ;
-
-
-                $.ajax({
-                url: sensorsPath,
+                // TODO 6: Add in the basic properties and error property of the object passed to the AJAX call
+                url: $('#host').val(),
                 method: 'GET',
                 dataType: 'json',
-
-                success: function (data) {
-                    // TODO 8: Create a success function that iterates over the list of sensors and displays them
-                    var sensorsList = "";
-                    $('#sensors').html(Object.keys(data).length + " sensors found!");
-                    sensorsList = sensorsList + html;
-                    for(var change in data){
-                    var html = "<li><a href=\"" + sensorsPath + change + "\">" + data[change].name + "</a></li>";}
-
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log(errorThrown);
-                }
-                $('#sensors-list').html(sensorsList);
+                },
                 
-                });
-            }
-            });
+                success: function (data) {
+                    // These two lines add links to the metadata and documentation of the device, respectively.
+                    // data.links.meta.title and data.links.doc.title place little bits of plain text ("Metadata" and "Documentation", respectively) before the links themselves
+                    $('#meta').html(data.links.meta.title + " <a href=\"" + data.links.meta.rel + "\">" + data.links.meta.rel + "</a>");
+                    $('#doc').html(data.links.doc.title + " <a href=\"" + data.links.doc.rel + "\">" + data.links.doc.rel + "</a>");
 
-            e.preventDefault();
+                    // TODO 7: Generate the URL to the sensors of the device
+
+                    var sensorsPath = "data.url" + "data.resources.sensors.url" ;
+
+
+                    $.ajax({
+                        url: sensorsPath,
+                        method: 'GET',
+                        dataType: 'json',
+
+                        success: function (data) {
+                            // TODO 8: Create a success function that iterates over the list of sensors and displays them
+                            var sensorsList = "";
+                            $('#sensors').html(Object.keys(data).length + " sensors found!");
+                            sensorsList = sensorsList + html;
+                            for(var change in data){
+                            var html = "<li><a href=\"" + sensorsPath + change + "\">" + data[change].name + "</a></li>";
+                            }
+                            $('#sensors-list').html(sensorsList);
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.log(errorThrown);
+                        }
+                    });
+                
+                    e.preventDefault();
+                    $('#message-form').submit(processForm);
+                }
+            })
         }
-
-        $('#message-form').submit(processForm);
     })(jQuery);
     </script>
 
