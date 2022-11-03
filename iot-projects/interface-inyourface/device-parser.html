@@ -95,9 +95,9 @@
                             $('#sensors').html(Object.keys(data).length + " sensors found!");
                             for(var change in data){
                             var html = "<li><a href=\"" + sensorsPath + change + "\">" + data[change].name + "</a></li>";
-                            sensorsList = sensorsList + html;
+                            sensorsList = sensorsList + html;}
                             
-                            $('#sensors-list').html(sensorsList);}
+                            $('#sensors-list').html(sensorsList);
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
                             console.log(errorThrown);
