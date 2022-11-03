@@ -81,7 +81,7 @@
                     // TODO 7: Generate the URL to the sensors of the device
                     data.url = "http://devices.webofthings.io/pi";
                     data.resources.sensors.url = "/sensors"
-                    var sensorsPath = "data.url" + "data.resources.sensors.url" ;
+                    var sensorsPath = data.url + data.resources.sensors.url;
 
 
                     $.ajax({
@@ -96,8 +96,8 @@
                             for(var change in data){
                             var html = "<li><a href=\"" + sensorsPath + change + "\">" + data[change].name + "</a></li>";
                             sensorsList = sensorsList + html;
-                            }
-                            $('#sensors-list').html(sensorsList);
+                            
+                            $('#sensors-list').html(sensorsList);}
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
                             console.log(errorThrown);
