@@ -286,14 +286,17 @@ _.map = function (collection, func) {
  **/
 
 _.reject = function (arr, func) {
-  var result = [];
-  for (var i = 0; i < arr.length; i++) {
-    var isGood = fun(arr[i], i, arr);
-    if (isGood === false) {
-      result.push(arr[i]);
+    var result = [];
+  
+    for (var i = 0; i < arr.length; i++) {
+      var isBad = fun(arr[i], i, arr);
+      if (isBad === false) {
+        result.push(arr[i]);
+      }
     }
-  }
-  return result;
+    return result;
+  
+  };
 
   /** _.partition
 * Arguments:
@@ -332,7 +335,7 @@ _.reject = function (arr, func) {
       resultF.push(array[i]);
     }
   };
-};
+
 
 /** _.every
  * Arguments:
