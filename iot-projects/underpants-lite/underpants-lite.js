@@ -289,7 +289,7 @@ _.reject = function (arr, func) {
     var result = [];
   
     for (var i = 0; i < arr.length; i++) {
-      var isBad = fun(arr[i], i, arr);
+      var isBad = func(arr[i], i, arr);
       if (isBad === false) {
         result.push(arr[i]);
       }
