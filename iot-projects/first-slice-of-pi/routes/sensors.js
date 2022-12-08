@@ -11,7 +11,7 @@ const express = require('express'),
 	 router.route('/dht/temperature').get(function (req, res, next) {
 		res.send(resources.pi.sensors.dht.temperature);
 	 });
-	 router.route('/dht/humdity').get(function (req, res, next) {
+	 router.route('/dht/humidity').get(function (req, res, next) {
 		res.send(resources.pi.sensors.dht.humidity);
 	 });
 	 router.route('/pir').get(function (req, res, next) {
