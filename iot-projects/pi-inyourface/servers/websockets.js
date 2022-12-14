@@ -1,3 +1,6 @@
+const { start } = require('./../plugins/internal/ledsPlugin');
+
+ledsPlugin = require('./../plugins/internal/ledsPlugin');
 var WebSocketServer = require('ws').Server,
 	resources = require('./../resources/model'),
 	utils = require('./../utils/utils');
@@ -23,5 +26,8 @@ function selectResource(url) {
 	}
 	return result;
 }
+
+start();
+stop();
 
 
