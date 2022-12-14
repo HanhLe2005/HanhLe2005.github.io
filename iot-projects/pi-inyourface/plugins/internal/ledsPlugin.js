@@ -25,18 +25,18 @@ function connectHardware() {
   actuator2 = new Gpio(model[2].gpio, "out");
 }
 
-function stop() {
+exports.stop = function(params) {
   actuator1.write(0);
   actuator2.write(0);
   actuator1.unexport();
-  actuator1.unexport();
+  actuator2.unexport();
 }
 
 exports.switchOnOff = {
     1: function (value) {
         // turn LED 1 on or off based on value
-		if (value === "one" || 1){
-			actuator1.write()
+		if (value === "true"){
+			actuator1.write(1)
 		}
 		else{
 			actuator1.write(0)
@@ -44,8 +44,8 @@ exports.switchOnOff = {
     },
     2: function (value) {
         // turn LED 2 on or off based on value
-		if (value === "one" || 1){
-			actuator2.write()
+		if (value === "true"){
+			actuator2.write(1)
 		}
 		else{
 			actuator2.write(0)
