@@ -17,10 +17,6 @@ exports.start = function (params) {
 function connectHardware() {
   var Gpio = require("onoff").Gpio;
 
-  sensor.watch(function (err, value) {
-    if (err) exit(err);
-  });
-
   actuator1 = new Gpio(model[1].gpio, "out");
   actuator2 = new Gpio(model[2].gpio, "out");
 }
