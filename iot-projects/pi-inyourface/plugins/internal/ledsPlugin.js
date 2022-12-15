@@ -35,7 +35,7 @@ exports.stop = function(params) {
 exports.switchOnOff = {
     1: function (value) {
         // turn LED 1 on or off based on value
-		if (value === "true"){
+		if (value === true){
 			actuator1.write(1)
 		}
 		else{
@@ -44,9 +44,9 @@ exports.switchOnOff = {
     },
     2: function (value) {
         // turn LED 2 on or off based on value
-		if (value === "true"){
-			actuator2.write(1)
-		}
+		if (value === true){
+      actuator2.write(1)
+    }
 		else{
 			actuator2.write(0)
 		}
