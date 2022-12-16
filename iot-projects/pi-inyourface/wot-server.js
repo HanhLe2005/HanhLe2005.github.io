@@ -6,6 +6,8 @@ var pirPlugin = require("./plugins/internal/pirPlugin"),
 
 var ledsPlugin = require("././plugins/internal/ledsPlugin");
 
+var webSocketPlugin = require("./servers/websockets");
+
 pirPlugin.start({});
 dhtPlugin.start({ frequency: 2000 });
 ledsPlugin.start({});
@@ -13,6 +15,7 @@ ledsPlugin.start({});
 resources.pi.port = 8686;
 
 var server = httpServer.listen(resources.pi.port, function () {
+	<websocketServer-webSocketPlugin>.listen(server);
   console.log("Running the Pi on port " + resources.pi.port);
 });
 
