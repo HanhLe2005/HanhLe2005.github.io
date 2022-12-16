@@ -34,5 +34,3 @@ function selectResource(url) {
   return result;
 }
 
-start();
-stop();
