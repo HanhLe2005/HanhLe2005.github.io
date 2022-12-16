@@ -13,13 +13,12 @@ exports.listen = function (server) {
   wss.on("connection", function (ws, req) {
     // TODO 3: Construct a callback for handling client subscription requests
     if (selectResource(req.url)) {
-    } else selectResource(req.url) === invalid;
-    {
-      console.log(error);
-      return;
       utils.monitor(selectResource(req.url), refreshRate, function (changes) {
         ws.send(JSON.stringify(changes));
       });
+    } else {
+      console.log("error");
+      return;
     }
   });
 };
