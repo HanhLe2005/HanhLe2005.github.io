@@ -15,7 +15,7 @@ ledsPlugin.start({});
 resources.pi.port = 8686;
 
 var server = httpServer.listen(resources.pi.port, function () {
-	<websocketServer-webSocketPlugin>.listen(server);
+	webSocketPlugin.listen(server);
   console.log("Running the Pi on port " + resources.pi.port);
 });
 
