@@ -161,7 +161,7 @@ function runProgram() {
 
   function repositionGameItem() {
 
-    var boardHeight = $('board').height();
+    var boardHeight = $('#board').height();
   
 
     positionX = positionX + speedX; //for walker 1
@@ -218,24 +218,7 @@ function runProgram() {
     ////////////////////////////Code for collisions///////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////
 
-    /* var swimmerWidth = $('#swimmer').width();
-     var swimmerHeight = $('#swimmer').height();
-     var swimmerLeft = parseFloat($("#swimmer").css("left"));
-     var swimmerTop = parseFloat($("#swimmer").css("left"));
- 
-     if (positionX > swimmerWidth){
-       speedX = -1;
-     }
-     if (positionY > swimmerHeight){
-       speedY = -1;
-     }
-     if (positionX > swimmerLeft){
-       speedX = -1;
-     }
-     if(positionY > swimmerTop){
-       speedX = -1;
-     }
-     */
+
 
 
   }
