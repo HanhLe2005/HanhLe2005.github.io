@@ -24,29 +24,27 @@ function runProgram() {
     "DOWN": 40,
   }
 
-  //variables for player scores//
   var updatedScore1 = 1;
   var updatedScore2 = 1;
   let interval;
   // Game Item Objects
 
-  //variables storing element properties from function//
   var ball = properties('#ball');
   var leftPaddle = properties('#leftPaddle');
   var rightPaddle = properties('#rightPaddle');
 
   // one-time setup
-  $(document).on('keydown', handleKeyDown); //event handler for detecting keys and what happens after they're pressed
-  $(document).on('keyup', handleKeyUp); //event handler for detecting when keys aren't pressed
-  $("#start").on("click", start); //event handler saying when the start button is clicked, the start function is called, which starts the program
-  $('#change_themes').on("click", changeTheme); //event saying to change CSS elements of the game when pressed
-  $("#instructions").on("click", function () { //event calling the instructions and it's close button
+  $(document).on('keydown', handleKeyDown);
+  $(document).on('keyup', handleKeyUp);
+  $("#start").on("click", start);
+  $('#change_themes').on("click", changeTheme);
+  $("#instructions").on("click", function () {
     $("#instructions_container").show();
   })
   $("#close_button").on("click", () => {
-    $("#instructions_container").hide(); //this hides the instruction button
+    $("#instructions_container").hide();
   })
-  startBall(); //starts the ball
+  startBall();
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -75,32 +73,30 @@ function runProgram() {
   Called in response to events.
   */
 
-  //function used above in the event handler, what happens when these keys are pressed...
-
   function handleKeyDown(event) {
     if (event.which === KEY.W) {
-      console.log("W pressed"); //console will say its pressed
-      leftPaddle.speedY = -10; //the SpeedY = -10, meaning it will go down
+      console.log("W pressed");
+      leftPaddle.speedY = -10;
     }
     else if (event.which === KEY.S) {
-      console.log("S pressed"); //console will say its pressed
-      leftPaddle.speedY = 10; //SpeedY = 10, it'll go up.
+      console.log("S pressed");
+      leftPaddle.speedY = 10;
     }
     else if (event.which === KEY.UP) {
       console.log("Up pressed");
-      rightPaddle.speedY = -10; //same as key W
+      rightPaddle.speedY = -10;
     }
     else if (event.which === KEY.DOWN) {
       console.log("Down pressed");
-      rightPaddle.speedY = 10; //same as key S
+      rightPaddle.speedY = 10;
     }
   }
 
   function handleKeyUp(event) {
 
     if (event.which === KEY.W) {
-      console.log("W unpressed"); //console will say unpressed
-      leftPaddle.speedY = 0; //speed will stop (same for all keys below)
+      console.log("W unpressed");
+      leftPaddle.speedY = 0;
     }
     else if (event.which === KEY.S) {
       console.log("S unpressed");
@@ -121,53 +117,49 @@ function runProgram() {
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
-  //calls the program to start
-  function start() {
+  function start(){
     interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   }
 
-  //detects collision with wall
   function wallCollision(gamePiece) {
-    if (gamePiece.x > BOARD_WIDTH) { //if the objectX is greater than board width (left side)
-      gamePiece.speedX *= -1;       //it'll bounce back
-      $('#player1Score').text(updatedScore1++); //the score will increase by one
-      startBall(); //the ball will restart at its original position 
-      points(); //point function will be called
+    if (gamePiece.x > BOARD_WIDTH) {
+      gamePiece.speedX *= -1;
+      $('#player1Score').text(updatedScore1++);
+      startBall();
+      points();
     }
-    else if (gamePiece.x < 0) {     //if objectX is greater than 0 (right side)
-      gamePiece.speedX *= -1;      //go in opposite direction
-      $('#player2Score').text(updatedScore2++);    //score will increase by one
-      startBall();       //start ball will be called
-      points();        //point function is called
+    else if (gamePiece.x < 0) {
+      gamePiece.speedX *= -1;
+      $('#player2Score').text(updatedScore2++);
+      startBall();
+      points();
     }
-    else if (gamePiece.y < 0) {     //if objectY is less than 0 (top)
-      gamePiece.speedY *= -1;     //itll go in the oppsite direction
+    else if (gamePiece.y < 0) {
+      gamePiece.speedY *= -1;
     }
-    else if (gamePiece.y > BOARD_HEIGHT && gamePiece.y > BOARD_HEIGHT_PADDLE) {   //if the object is greater than board height (bottom) OR boardheight paddle(declared above, just subjects the height of the paddle)
-      gamePiece.speedY *= -1;     //object will go in the opposite direction
+    else if (gamePiece.y > BOARD_HEIGHT && gamePiece.y > BOARD_HEIGHT_PADDLE) {
+      gamePiece.speedY *= -1;
     }
   }
 
-  function points() {
-    if (updatedScore1 >= 11 || updatedScore2 >= 11) {     //if the scores for either player is greater than or equal to 11 (10 when called). the game ends
+  function points(){
+    if (updatedScore1 >= 11 || updatedScore2 >= 11){
       endGame();
     }
-    else if (updatedScore1 >= 4 || updatedScore2 >= 4) {     //when the score is greater than or equal to 4, (3 when called), the random speed will increase
+    else if (updatedScore1 >= 4 || updatedScore2 >= 4){
       ball.speedX = (Math.random() * 5 + 6) * (Math.random() > 0.5 ? -1 : 1);
       ball.speedY = (Math.random() * 5 + 6) * (Math.random() > 0.5 ? -1 : 1);
 
     }
-
+  
   }
 
-
-  //function for checking if two objects collide
 
   function doCollide(obj1, obj2) {
 
     // TODO: calculate and store the remaining
     // sides of obj1
-    obj1.leftX = obj1.x;   
+    obj1.leftX = obj1.x;
     obj1.topY = obj1.y;
     obj1.right = obj1.x + obj1.width;
     obj1.bottom = obj1.y + obj1.height;
@@ -190,8 +182,6 @@ function runProgram() {
 
   }
 
-
-  //function that uses the collide function to check if the paddles and ball collide, and if so, the ball will bounce back
   function ballPaddle() {
     if (doCollide(leftPaddle, ball) === true) {
       ball.speedX *= -1;
@@ -201,7 +191,7 @@ function runProgram() {
     }
   }
 
-//function to move objects across the board
+
 
   function moveObject(object) {
 
@@ -215,8 +205,6 @@ function runProgram() {
 
   }
 
-
-  //function that starts the ball at the center and gives it a random speed for when it moves
   function startBall() {
     ball.speedX = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
     ball.speedY = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
@@ -225,8 +213,7 @@ function runProgram() {
 
   }
 
-  //function that changes the CSS elements of the game, when the button is pushed
-  function changeTheme() {
+  function changeTheme(){
     $('#board').css('background-color', 'rgb(204, 255, 204)');
     $('#board').css('border', '3px solid white');
     $('body').css('background-color', 'black');
@@ -237,10 +224,10 @@ function runProgram() {
     $('#player2Score').css('border', '3px solid brown');
     $('#ball').css('background-color', ' brown');
 
+
+
   }
 
-
-  //factory function that stores everything
   function properties(elementId) {
 
     var gameObject = {};
@@ -255,8 +242,6 @@ function runProgram() {
 
   }
 
-
-  //ends the game
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
