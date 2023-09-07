@@ -58,7 +58,8 @@
      * the mouse. Store the result in a variable called distance:
      */
     
-    var distance = getDistance(startUp, mouseLocation)
+    var distance = getDistance(shapeUp, mouseLocation)
+
 
     var mouseLocation = {
       X: stage.mouseX,
@@ -70,6 +71,10 @@
      * alpha property of shapeUp accordingly:
      */
     
+    if (mouseLocation.X < shapeUp.X && mouseLocationY > shapeUp.Y){
+      shapeUp.Alpha = 1;
+    }
+    else shapeUp.Alpha = 0;
     
     /*
      * Update the textfield with the current distance between the mouse and 

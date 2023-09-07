@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* global $, sessionStorage */
 
 $(document).ready(runProgram); // wait for the HTML / CSS elements of the page to fully load, then execute runProgram()
@@ -235,7 +234,6 @@ function runProgram() {
 
 }
 
-=======
 /* global $, sessionStorage */
 
 $(document).ready(runProgram); // wait for the HTML / CSS elements of the page to fully load, then execute runProgram()
@@ -489,4 +487,3 @@ function runProgram() {
 
 }
 
->>>>>>> 2cf1e8e75f19df2531542b7889c4f470f0c53b7d

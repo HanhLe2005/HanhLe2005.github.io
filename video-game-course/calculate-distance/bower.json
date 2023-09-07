@@ -19,6 +19,6 @@
   "dependencies": {
     "EaselJS": "^1.0.2",
     "V6": "^0.0.2",
-    "gummybears": "https://github.com/HanhLe2005/gummybears.git#^0.0.3"
+    "gummybears": "https://github.com/HanhLe2005/gummybears"
   }
 }
